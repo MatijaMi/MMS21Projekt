@@ -11,8 +11,24 @@
 		<script src="mainScript.js"></script>
     </head>
     
-    <body onload="setupCanvas()">
-        <canvas id='canvas'></canvas>
+    <body onload="addListeners()">
+        
+        <div id="mainDiv">
+            <img id="backgroundImg" src="">
+            <img id="Screwdriver" src="">
+            <p id="startText">Welcome to the Lab</p>
+            <br>
+            <button id='startButton'> Start </button>
+            <div id="topArrow" class="arrowButtons"></div>
+            <div id="bottomArrow" class="arrowButtons"></div>
+            <div id="leftArrow" class="arrowButtons"></div>
+            <div id="rightArrow" class="arrowButtons"></div>
+            <div id="inventory"></div>
+            
+            <div id="countdownClock">
+            </div>
+        </div>
+        
     </body>
     
 </html>
