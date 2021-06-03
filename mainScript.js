@@ -5,7 +5,9 @@ var zoomedIn =false;
 
 function startGame(){
    if(document.getElementById("startButton")!=null){ document.getElementById("startButton").parentElement.removeChild(document.getElementById("startButton"));
-    document.getElementById("startText").parentElement.removeChild(document.getElementById("startText"));
+    if(document.getElementById("StartVideo")){
+        document.getElementById("StartVideo").parentElement.removeChild(document.getElementById("StartVideo"));
+    }
     }
     if(document.getElementById("endButton")!=null){
         document.getElementById("endButton").parentElement.removeChild(document.getElementById("endButton"));
@@ -111,7 +113,7 @@ function drawClock(){
     drawBottomArrow();
 }
 function addListeners(){
-    document.getElementById("startButton").addEventListener("click",startGame);
+    //document.getElementById("startButton").addEventListener("click",startGame);
 }
 function gameOver(){
     document.getElementById("mainDiv").innerHTML+="<p id='gameOverText'>GAME OVER</p><br><button id='endButton'>Restart</button>";

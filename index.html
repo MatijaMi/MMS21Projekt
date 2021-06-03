@@ -16,9 +16,15 @@
         <div id="mainDiv">
             <img id="backgroundImg" src="">
             <img id="Screwdriver" src="">
-            <p id="startText">Welcome to the Lab</p>
-            <br>
-            <button id='startButton'> Start </button>
+            <iframe src="Images/silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+            
+            <video autoplay id="StartVideo"><source src="Images/START.mp4" type="video/mp4" ></video>
+            
+            <button id=startButton onclick="startGame()"></button>
+            <script>
+            document.getElementById("StartVideo").volume=0.2;
+            </script>
+            
             <div id="topArrow" class="arrowButtons"></div>
             <div id="bottomArrow" class="arrowButtons"></div>
             <div id="leftArrow" class="arrowButtons"></div>

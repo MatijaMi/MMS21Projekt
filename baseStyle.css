@@ -75,8 +75,19 @@ body{
     border-right: 40px solid transparent;
     border-top: 20px solid #000;
 }
-
-#startButton, #endButton{
+#startButton{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size:0;
+    width: 53vw;
+    height: 18vh;
+    position: absolute;
+    left: 23%;
+    top: 27%;
+    
+}
+#endButton{
     background-color: #d22;
     color:white;
     position: relative;
@@ -86,7 +97,7 @@ body{
     font-family: serif;
     margin: 0;
 }
-#startButton,#endButton:hover{
+#endButton:hover{
     cursor: pointer;
 }
 
@@ -125,4 +136,9 @@ body{
     height: 0;
     z-index: 0;
     margin: 0;
+}
+
+#StartVideo{
+    height: 99%;
+    
 }
