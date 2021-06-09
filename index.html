@@ -7,34 +7,69 @@
     	<link rel="icon" href="Images/icon.svg">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>EscapeRoom-Demo</title>
+        <link rel="shortcut icon" type="image/jpg" href="Images/Screwdriver.svg"/>
         <link rel="stylesheet" href="baseStyle.css">
 		<script src="mainScript.js"></script>
+		<script src="JS/inventory.js"></script>
+		<script src="JS/audio.js"></script>
+		<script src="JS/timer.js"></script>
+		<script src="JS/move.js"></script>
+		<script src="JS/presenter.js"></script>
     </head>
     
-    <body onload="addListeners()">
+    <body>
         
         <div id="mainDiv">
             <img id="backgroundImg" src="">
-            <img id="Screwdriver" src="">
+            
             <iframe src="Images/silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-            
-            <video autoplay id="StartVideo"><source src="Images/START.mp4" type="video/mp4" ></video>
-            
+            <video autoplay id="StartVideo"><source src="Images/START.mp4" type="video/mp4" ></video> <audio  src="Audio/clockbeep.mp3" id="beepAudio" display ="none"></audio>
+            <audio  src="Audio/success.wav" id="successAudio" display ="none"></audio>
+            <audio  src="Audio/error.wav"  id = "errorAudio" display ="none"></audio>
+            <audio  src="Audio/unlock.wav" id= "unlockAudio" display ="none"></audio>        
+            <audio  src="Audio/click.wav" id= "clickAudio" display ="none"></audio>        
+            <audio  src="Audio/pickup.wav" id= "pickupAudio" display ="none"></audio>        
             <button id=startButton onclick="startGame()"></button>
-            <script>
-            document.getElementById("StartVideo").volume=0.2;
-            </script>
+            
+            
+            <div id="inventory">
+                <div id="inventoryArrowLeft"></div>
+                <div id="inventoryArrowRight"></div>
+                <div class="inventorySlot" id="inventorySlot0"></div>
+                <div class="inventorySlot" id="inventorySlot1"></div>
+                <div class="inventorySlot" id="inventorySlot2"></div>
+                <div class="inventorySlot" id="inventorySlot3"></div>
+                <div class="inventorySlot" id="inventorySlot4"></div>
+                <div class="inventorySlot" id="inventorySlot5"></div>
+            </div>
+            
+            
+            <div id="inspectionScreen"> 
+                <img id="inspectionImage" src="">
+                <div id="ObjectDescription">Yes, it's a screwdriver... obviously.</div>
+                <button id="leaveInspectButton">X</button>
+            </div>
+            
             
             <div id="topArrow" class="arrowButtons"></div>
             <div id="bottomArrow" class="arrowButtons"></div>
             <div id="leftArrow" class="arrowButtons"></div>
             <div id="rightArrow" class="arrowButtons"></div>
-            <div id="inventory"></div>
             
             <div id="countdownClock">
             </div>
+            <img id="Screwdriver" src="Images/Screwdriver.svg">
+            
         </div>
         
     </body>
+    
+    <script>
+        document.getElementById("StartVideo").volume=0.2;
+        const myVideo = document.getElementById('StartVideo');
+
+        const playPromise = myVideo.play() || Promise.reject('');
+        playPromise.then(() => {}).catch(err => {myVideo.muted = true; myVideo.play();});
+    </script>
     
 </html>

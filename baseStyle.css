@@ -10,12 +10,12 @@ body{
 }
 
 #mainDiv{
-    width: 100vw-50px;
+    width: 100vw;
     height: 100vh;
     background-color: black;
     text-align: center;
     background-attachment: fixed;
-    background-size:100% auto;
+    background-size: contain;
 }
 .arrowButtons:hover{
      cursor: pointer;
@@ -28,30 +28,30 @@ body{
     margin: 0;
     color:white;
     font-size: 50px;
-    width: 100vw;
-    
+    width: 100vw;   
 }
 
 #leftArrow{
     width: 0px;
     height: 0px;
     position: absolute;
-    top:calc(50% - 40px);
+    top:calc(50% - 50px);
     left:1%;
-    border-top: 40px solid transparent;
-    border-right: 20px solid #000;
-    border-bottom: 40px solid transparent;
+    border-top: 50px solid transparent;
+    border-right: 25px solid #000;
+    border-bottom: 50px solid transparent;
+
 }
 
 #rightArrow{
     width: 0px;
     height: 0px;
     position: absolute;
-    top:calc(50% - 40px);
+    top:calc(50% - 50px);
     left:98%;
-    border-top: 40px solid transparent;
-    border-left: 20px solid #000;
-    border-bottom: 40px solid transparent;
+    border-top: 50px solid transparent;
+    border-left: 25px solid #000;
+    border-bottom: 50px solid transparent;
 }
 
 #topArrow{
@@ -59,10 +59,10 @@ body{
     height: 0px;
     position: absolute;
     top:1%;
-    left: calc(50% - 40px);
-    border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    border-bottom: 20px solid #000;
+    left: calc(50% - 50px);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid #000;
 }
 
 #bottomArrow{
@@ -70,11 +70,25 @@ body{
     height: 0px;
     position: absolute;
     top:97%;
-    left:calc(50% - 40px);
-    border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    border-top: 20px solid #000;
+    left:calc(50% - 50px);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid #000;
 }
+
+#leftArrow:hover{
+    border-right: 24px solid #2222dd;
+}
+#rightArrow:hover{
+    border-left: 24px solid #2222dd;
+}
+#topArrow:hover{
+    border-bottom: 24px solid #2222dd;
+}
+#bottomArrow:hover{
+    border-top: 24px solid #2222dd;
+}
+
 #startButton{
     cursor: pointer;
     background: transparent;
@@ -124,9 +138,10 @@ body{
 
 #Screwdriver{
     position: absolute;
-    top: 57.5%;
+    top: 51.5%;
     left:69%;
     width: 5vw;
+    display: none;
 }
 
 
@@ -141,4 +156,125 @@ body{
 #StartVideo{
     height: 99%;
     
+}
+
+#inventory{
+    padding: none;
+    display: none;
+    border:3px solid black;
+    width:35vw;
+    height: 11vh;
+    background-color: gray;
+    z-index: 1;
+    position: absolute;
+    left:3%;
+    bottom: 4%;
+    border-radius: 10px;
+}
+
+.inventorySlot{
+    margin: 10px;
+    width: 10%;
+    height: 75%;
+    background-color: #fff;
+    display: inline-block;
+    z-index: 2;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border:2px solid black;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.inspectButton{
+    position: relative;
+    top:75%;
+    background-color: #6666dd;
+    color:white;
+    cursor: pointer;
+}
+
+#inventoryArrowLeft{
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top:20%;
+    left: 2%;
+    z-index: 2;
+    border-top: 30px solid transparent;
+    border-right: 15px solid orange;
+    border-bottom: 30px solid transparent;
+    cursor: pointer;  
+}
+
+
+#inventoryArrowRight{
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top:20%;
+    right: 2%;
+    z-index: 2;
+    border-top: 30px solid transparent;
+    border-left: 15px solid orange;
+    border-bottom: 30px solid transparent;
+    cursor: pointer;
+}
+
+#inventoryArrowLeft:hover{
+    border-right: 15px solid #ffd800ff;
+}
+
+#inventoryArrowRight:hover{
+    border-left: 15px solid #ffd800ff;
+}
+
+#inspectionImage{
+    position: absolute;
+    left: calc(10% - 15px);
+    top: 10%;
+    width: calc(80% + 20px);
+    height: 75%;
+    background-color: white;
+    border: 5px solid black;
+}
+
+#inspectionScreen{
+    display: none;
+    width: 40%;
+    height: 85%;
+    position: absolute;
+    top:7.5%;
+    left:30%;
+    z-index: 10;
+    background-color: #aaa;
+    background-size: contain;
+    background-repeat: no-repeat;  
+    border: solid 7px black;
+    border-radius: 20px;
+}
+
+#leaveInspectButton{
+    position: absolute;
+    cursor: pointer;
+    right: 2%;
+    top: 2%;
+    font-size: 30px;
+    background-color: #cc0000;
+    border:3px solid black;
+    border-radius: 45px;
+}
+
+#ObjectDescription{
+    position: absolute;
+    left: calc(10% - 15px);
+    bottom:5%;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-color: #dddddd;
+    padding: 10px;
+    width:80%;
+    height: 60;;
+    text-align: left;
 }
