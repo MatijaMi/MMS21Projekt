@@ -39,6 +39,7 @@ function drawRoom(){
         document.getElementById("backgroundImg").style.height="100vh";
         document.getElementById("mainDiv").style.backgroundColor="#ffff";
         drawItemsOnWall(wall);
+        drawInteractibles(wall);
         drawUI();
     };
     
@@ -63,27 +64,28 @@ function showArrow(arrow,show){
     }
 }
 
-function drawZoomedInScene(){
-    var scene = event.srcElement.id;
-    prevWall =wall;
-    wall = 19;
-    drawUI();
-    document.getElementById("backgroundImg").src="Images/Scenes/" +scene +".png";
-    drawItemsOnWall(wall);
-}
-
 function drawItemsOnWall(wall){
     for(var i =0; i< currentItems.length;i++){
-        for(var j =0; j <currentItems[i].length;i++){
+        for(var j =0; j <currentItems[i].length;j++){
             var item = currentItems[i][j];
-            if(j==wall){
+            if(i==wall){
                 document.getElementById(item).style.display="block";
-                document.getElementById(item).addEventListener("click",pickupItem);
             }else{
                 document.getElementById(item).style.display="none";
-                document.getElementById(item).removeEventListener("click",pickupItem);
+            }
+        }  
+    }
+}
+
+function drawInteractibles(wall){
+    for(var i =0; i< interactibles.length;i++){
+        for(var j =0; j <interactibles[i].length;j++){
+            var item = interactibles[i][j];
+            if(i==wall){
+                document.getElementById(item).style.display="block";
+            }else{
+                document.getElementById(item).style.display="none";
             }
         }
-        
     }
 }

@@ -21,3 +21,7 @@ function playClickSound(){
 function playPickupSound(){
      document.getElementById("pickupAudio").play();
 }
+
+function playUnscrewAudio(){
+     document.getElementById("unscrewAudio").play();
+}

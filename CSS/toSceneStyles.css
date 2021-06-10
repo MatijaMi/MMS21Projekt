@@ -1,0 +1,15 @@
+.SceneButton{
+    background: transparent;
+    border: none;
+    font-size:0;
+    position: absolute;
+    z-index: 2; 
+}
+
+#VentScene{
+    right: 6%;
+    bottom: 25%;
+    width: 19vw;
+    height: 25vh;
+    display: none;
+}

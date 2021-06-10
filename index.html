@@ -7,31 +7,36 @@
     	<link rel="icon" href="Images/icon.svg">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>EscapeRoom-Demo</title>
-        <link rel="shortcut icon" type="image/jpg" href="Images/Screwdriver.svg"/>
-        <link rel="stylesheet" href="baseStyle.css">
+        <link rel="shortcut icon" type="image/jpg" href="Images/Items/Screwdriver.svg"/>
+        <!-- All the stylesheets necessary for the various scenes -->
+        <link rel="stylesheet" href="CSS/baseStyle.css">
+        <link rel="stylesheet" href="CSS/itemStyle.css">
+        <link rel="stylesheet" href="CSS/sceneStyle.css">
+        <link rel="stylesheet" href="CSS/toSceneStyles.css">
+        <!-- Import for all the scripts that are used for the various parts-->
 		<script src="mainScript.js"></script>
+		<script src="itemDescriptions.json"></script>
 		<script src="JS/inventory.js"></script>
 		<script src="JS/audio.js"></script>
 		<script src="JS/timer.js"></script>
 		<script src="JS/move.js"></script>
 		<script src="JS/presenter.js"></script>
+		<script src="JS/Scenes/ventScene.js"></script>
     </head>
     
     <body>
         
         <div id="mainDiv">
+            <!-- The Image used to display what is currently the main scene of the room-->
             <img id="backgroundImg" src="">
             
+            <!--Intro Film and some code to make it autoplay properly-->
             <iframe src="Images/silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-            <video autoplay id="StartVideo"><source src="Images/START.mp4" type="video/mp4" ></video> <audio  src="Audio/clockbeep.mp3" id="beepAudio" display ="none"></audio>
-            <audio  src="Audio/success.wav" id="successAudio" display ="none"></audio>
-            <audio  src="Audio/error.wav"  id = "errorAudio" display ="none"></audio>
-            <audio  src="Audio/unlock.wav" id= "unlockAudio" display ="none"></audio>        
-            <audio  src="Audio/click.wav" id= "clickAudio" display ="none"></audio>        
-            <audio  src="Audio/pickup.wav" id= "pickupAudio" display ="none"></audio>        
+            <video autoplay id="StartVideo"><source src="Images/START.mp4" type="video/mp4" ></video> 
+            
             <button id=startButton onclick="startGame()"></button>
             
-            
+            <!-- Inventory HTML-->
             <div id="inventory">
                 <div id="inventoryArrowLeft"></div>
                 <div id="inventoryArrowRight"></div>
@@ -43,29 +48,55 @@
                 <div class="inventorySlot" id="inventorySlot5"></div>
             </div>
             
-            
+            <!-- HTML for the Inventory Screen-->
             <div id="inspectionScreen"> 
                 <img id="inspectionImage" src="">
-                <div id="ObjectDescription">Yes, it's a screwdriver... obviously.</div>
+                <div id="ObjectDescription"></div>
                 <button id="leaveInspectButton">X</button>
             </div>
             
-            
+            <!-- Arrows for navigation in the screens-->
             <div id="topArrow" class="arrowButtons"></div>
             <div id="bottomArrow" class="arrowButtons"></div>
             <div id="leftArrow" class="arrowButtons"></div>
             <div id="rightArrow" class="arrowButtons"></div>
             
-            <div id="countdownClock">
+            <!-- The Countdown Clock-->
+            <div id="countdownClock"></div>
+            
+            
+            <!-- All of the Audio files needed go here-->
+            <audio  src="Audio/clockbeep.mp3" id="beepAudio" display ="none"></audio>
+            <audio  src="Audio/success.wav" id="successAudio" display ="none"></audio>
+            <audio  src="Audio/error.wav"  id = "errorAudio" display ="none"></audio>
+            <audio  src="Audio/unlock.wav" id= "unlockAudio" display ="none"></audio>        
+            <audio  src="Audio/click.wav" id= "clickAudio" display ="none"></audio>        
+            <audio  src="Audio/pickup.wav" id= "pickupAudio" display ="none"></audio>        
+            <audio  src="Audio/unscrew.wav" id= "unscrewAudio" display ="none"></audio>        
+            
+            <!-- All the Inventory Items go here-->
+            <img id="Screwdriver" src="Images/Items/Screwdriver.svg" onclick="pickupItem()">
+            <img id="Lense" src="Images/Items/Lense.png" onclick="pickupItem()">
+            
+            <!-- All the buttons to go to a scene go here-->
+            <button class="SceneButton" id="VentScene" onclick="drawVentScene()"> </button>
+            
+            <!-- All the extra things, aka things to interact with in each scene go here-->
+            <div id='VentCover' class="SceneParts">
+                <image id='VentCoverImage' src='Images/Scenes/VentCover.png'></image>
+                <button id='TopRightScrew' onclick='removeScrew()'>X</button>
+                <button id='TopLeftScrew' onclick='removeScrew()'>X</button>
+                <button id='BottomLeftScrew' onclick='removeScrew()'>X</button>
+                <button id='BottomRightScrew' onclick='removeScrew()'>X</button>
             </div>
-            <img id="Screwdriver" src="Images/Screwdriver.svg">
             
         </div>
         
     </body>
-    
+    <!--Script for autoplay and to reduce the volume so players don't go deaf-->
     <script>
         document.getElementById("StartVideo").volume=0.2;
+        document.getElementById("errorAudio").volume=0.2;
         const myVideo = document.getElementById('StartVideo');
 
         const playPromise = myVideo.play() || Promise.reject('');

@@ -1,0 +1,15 @@
+#Screwdriver{
+    position: absolute;
+    top: 51.5%;
+    left:69%;
+    width: 5vw;
+    display: none;
+}
+
+#Lense{
+    position: absolute;
+    top: 65.5%;
+    left:50%;
+    width: 5vw;
+    display: none;
+}

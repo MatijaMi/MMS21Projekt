@@ -31,6 +31,10 @@ function moveRight(){
     drawRoom();
 }
 function moveBottom(){
+    var parts =document.getElementsByClassName("SceneParts");
+    for(var i =0; i <parts.length;i++){
+        parts[i].style.display="none";
+    }
     wall=prevWall;
     playClickSound();
     drawRoom();

@@ -7,7 +7,7 @@ var inventoryPointer=0;
 var itemSelected=-1;
 var itemInHand="";
 var allItems=[["Screwdriver"],[],[],[],[],[],[],[],[],[]];
-var interactibles=[[],[],[],[],[],[],[],[],[],[]];
+var interactibles=[[],[],[],["VentScene"],[],[],[],[],[],[]];
 var currentItems=[[]];
 
 function startGame(){
