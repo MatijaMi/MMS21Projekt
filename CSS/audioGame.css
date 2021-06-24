@@ -1,0 +1,72 @@
+#melody1Button
+{
+	border: none;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+#melody1Button::-moz-focus-inner
+{
+	margin: 0;
+	border-width: 0;
+	padding: 0;
+}
+
+#melody1Button:focus
+{
+	outline: 3px solid white;
+}
+
+#melody1Button img
+{
+	display: block;
+}
+#melody2Button
+{
+	border: none;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+#melody2Button::-moz-focus-inner
+{
+	margin: 0;
+	border-width: 0;
+	padding: 0;
+}
+
+#melody2Button:focus
+{
+	outline: 3px solid white;
+}
+
+#melody2Button img
+{
+	display: block;
+}
+#melody3Button
+{
+	border: none;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+#melody3Button::-moz-focus-inner
+{
+	margin: 0;
+	border-width: 0;
+	padding: 0;
+}
+
+#melody3Button:focus
+{
+	outline: 3px solid white;
+}
+
+#melody3Button img
+{
+	display: block;
+}
