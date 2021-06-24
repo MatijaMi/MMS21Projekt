@@ -1,12 +1,10 @@
-canvas{
-    width:100%;
-    height: 100%;
-}
-
 body{
     margin:0px;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    min-width: 1280px;
+    min-height: 720px;
+    overflow: hidden;
 }
 
 #mainDiv{
@@ -16,6 +14,7 @@ body{
     text-align: center;
     background-attachment: fixed;
     background-size: contain;
+    overflow: hidden;
 }
 .arrowButtons:hover{
      cursor: pointer;
@@ -35,11 +34,11 @@ body{
     width: 0px;
     height: 0px;
     position: absolute;
-    top:calc(50% - 50px);
+    top:44%;
     left:1%;
-    border-top: 50px solid transparent;
-    border-right: 25px solid #000;
-    border-bottom: 50px solid transparent;
+    border-top: 6vh solid transparent;
+    border-right: 3vh solid #000;
+    border-bottom: 6vh solid transparent;
 
 }
 
@@ -47,33 +46,24 @@ body{
     width: 0px;
     height: 0px;
     position: absolute;
-    top:calc(50% - 50px);
+    top:44%;
     left:98%;
-    border-top: 50px solid transparent;
-    border-left: 25px solid #000;
-    border-bottom: 50px solid transparent;
+    border-top: 6vh solid transparent;
+    border-left: 3vh solid #000;
+    border-bottom: 6vh solid transparent;
 }
 
-#topArrow{
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    top:1%;
-    left: calc(50% - 50px);
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 25px solid #000;
-}
 
 #bottomArrow{
     width: 0px;
     height: 0px;
     position: absolute;
     top:97%;
-    left:calc(50% - 50px);
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 25px solid #000;
+    z-index: 9;
+    left:47%;
+    border-left: 6vh solid transparent;
+    border-right: 6vh solid transparent;
+    border-top: 3vh solid #000;
 }
 
 #leftArrow:hover{
@@ -82,9 +72,7 @@ body{
 #rightArrow:hover{
     border-left: 24px solid #2222dd;
 }
-#topArrow:hover{
-    border-bottom: 24px solid #2222dd;
-}
+
 #bottomArrow:hover{
     border-top: 24px solid #2222dd;
 }
@@ -98,24 +86,27 @@ body{
     height: 18vh;
     position: absolute;
     left: 23%;
-    top: 27%;
-    
+    top: 27%; 
 }
 
-
-#endButton{
-    background-color: #d22;
-    color:white;
-    position: relative;
-    top:50%;
+#restartButton{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size:0;
+    position: absolute;
+    z-index: 1;
+    bottom: 2%;
+    left: 7%;
+    width: 11%;
+    height: 20%;
     border-radius: 20px;
     font-size: 40px;
     font-family: serif;
     margin: 0;
+    display: none;
 }
-#endButton:hover{
-    cursor: pointer;
-}
+
 
 #countdownClock{
     position: absolute;
@@ -141,38 +132,65 @@ body{
 
 #backgroundImg{
     overflow: hidden;
-    width:0;
-    height: 0;
+    display: none;
+    width:100%;
+    height: 100%;
     z-index: 0;
     margin: 0;
 }
 
-#StartVideo{
-    height: 99%;
-    
+#backgroundImgLeftHalf{
+    position: absolute;
+    left: 0; 
+}
+
+#backgroundImgRightHalf{
+    position: absolute;
+    right: 0; 
+}
+
+#StartVideo, #GameOverVideo, #GameWinVideo{
+    height: 99%;  
+    overflow: hidden;
+}
+
+#GameOverVideo, #GameWinVideo{
+    display: none;
+}
+
+#dimmnesBox{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000a;
+    z-index: 8;
 }
 
 #inventory{
     padding: none;
     display: none;
     border:3px solid black;
-    width:35vw;
     height: 11vh;
     background-color: gray;
-    z-index: 1;
+    z-index: 9;
     position: absolute;
     left:3%;
     bottom: 4%;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .inventorySlot{
-    margin: 10px;
-    width: 10%;
+    margin: 2%;
+    width: 4vw;
     height: 75%;
     background-color: #fff;
     display: inline-block;
-    z-index: 2;
+    z-index: 10;
+    text-align: center;
     cursor: pointer;
     background-size: contain;
     background-repeat: no-repeat;
@@ -192,68 +210,73 @@ body{
 #inventoryArrowLeft{
     width: 0px;
     height: 0px;
-    position: absolute;
-    top:20%;
-    left: 2%;
-    z-index: 2;
-    border-top: 30px solid transparent;
-    border-right: 15px solid orange;
-    border-bottom: 30px solid transparent;
-    cursor: pointer;  
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-top: 4vh solid transparent;
+    border-right: 2vh solid orange;
+    border-bottom: 4vh solid transparent;
+    cursor: pointer; 
+    z-index: 10;
 }
 
 
 #inventoryArrowRight{
     width: 0px;
     height: 0px;
-    position: absolute;
-    top:20%;
-    right: 2%;
-    z-index: 2;
-    border-top: 30px solid transparent;
-    border-left: 15px solid orange;
-    border-bottom: 30px solid transparent;
+    display: inline-block;
+    z-index: 10;
+    margin-left: 1px;
+    margin-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-top: 4vh solid transparent;
+    border-left: 2vh solid orange;
+    border-bottom: 4vh solid transparent;
     cursor: pointer;
 }
 
 #inventoryArrowLeft:hover{
-    border-right: 15px solid #ffd800ff;
+    border-right: 2vh solid #ffd800ff;
 }
 
 #inventoryArrowRight:hover{
-    border-left: 15px solid #ffd800ff;
+    border-left: 2vh solid #ffd800ff;
 }
 
 #inspectionImage{
-    position: absolute;
-    left: calc(10% - 15px);
-    top: 10%;
-    width: calc(80% + 20px);
-    height: 75%;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: 7%;
+    width: 30vw;
+    height: 80vh;
     background-color: white;
     border: 5px solid black;
 }
 
 #inspectionScreen{
     display: none;
-    width: 40%;
-    height: 85%;
     position: absolute;
-    top:7.5%;
-    left:30%;
+    top:5%;
+    left:35%;
+    right: auto;
     z-index: 10;
     background-color: #aaa;
     background-size: contain;
     background-repeat: no-repeat;  
     border: solid 7px black;
     border-radius: 20px;
+    padding: 20px;
+    padding-top: 60px;
 }
 
 #leaveInspectButton{
     position: absolute;
     cursor: pointer;
-    right: 2%;
-    top: 2%;
+    right: 1%;
+    top: 1%;
     font-size: 30px;
     background-color: #cc0000;
     border:3px solid black;

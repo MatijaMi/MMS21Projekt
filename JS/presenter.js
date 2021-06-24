@@ -1,42 +1,40 @@
-function drawRoom(){
-    var img = new Image();
+function drawWall(){
+    var leftHalf = new Image();
+    var rightHalf = new Image();
+    
     switch (wall){
         case 0:
-            img.src = 'Images/NorthWall.png';
+            if(riddle3Solved){
+                leftHalf.src = 'Images/Final/wall-n-l-2.png';
+            }else{
+                leftHalf.src = 'Images/Final/wall-n-l-1.png';
+            } 
+            if(riddle4Solved){
+                rightHalf.src = 'Images/Final/wall-n-r-2.png';
+            }else{
+                rightHalf.src = 'Images/Final/wall-n-r-1.png';
+            }
+            
             break;
         case 1:
-            img.src = 'Images/EastWall.png';
+            leftHalf.src = 'Images/EastWall.png';
             break;
         case 2:
-            img.src = 'Images/SouthWall.png';
+            leftHalf.src = 'Images/SouthWall.png';
             break;
         case 3:
-            img.src = 'Images/WestWall.png';
-            break;
-        case 4:
-            img.src = 'Images/Ceiling.png';
-            break;
-        case 5:
-            img.src = 'Images/Ceiling.png';
-            break;
-        case 6:
-            img.src = 'Images/Ceiling.png';
-            break;
-        case 7:
-            img.src = 'Images/Ceiling.png';
-            break;
-        case 8:
-            img.src = 'Images/Ceiling.png';
-            break;
-        case 9:
-            img.src = 'Images/Ceiling.png';
+            leftHalf.src = 'Images/Final/wall-w-l-1.png';     
+            rightHalf.src = 'Images/Final/wall-w-r-1.png';
             break;
     }
     
-    img.onload = function() {
-        document.getElementById("backgroundImg").src=img.src;
-        document.getElementById("backgroundImg").style.width="100vw"
-        document.getElementById("backgroundImg").style.height="100vh";
+    leftHalf.onload = function() {
+        document.getElementById("backgroundImgLeftHalf").src=leftHalf.src;
+        document.getElementById("backgroundImgLeftHalf").style.width="50vw"
+        document.getElementById("backgroundImgLeftHalf").style.height="100vh";
+        document.getElementById("backgroundImgRightHalf").src=rightHalf.src;
+        document.getElementById("backgroundImgRightHalf").style.width="50vw"
+        document.getElementById("backgroundImgRightHalf").style.height="100vh";
         document.getElementById("mainDiv").style.backgroundColor="#ffff";
         drawItemsOnWall(wall);
         drawInteractibles(wall);
@@ -48,12 +46,7 @@ function drawRoom(){
 function drawUI(){    
     showArrow("left",(wall%5)<4);
     showArrow("right",(wall%5)<4);
-    showArrow("top",(wall%5)<4);
     showArrow("bottom", !((wall%5)<4));
-    document.getElementById("topArrow").addEventListener("click",moveTop);
-    document.getElementById("bottomArrow").addEventListener("click",moveBottom);
-    document.getElementById("leftArrow").addEventListener("click",moveLeft);
-    document.getElementById("rightArrow").addEventListener("click",moveRight);
 }
 
 function showArrow(arrow,show){
@@ -78,9 +71,9 @@ function drawItemsOnWall(wall){
 }
 
 function drawInteractibles(wall){
-    for(var i =0; i< interactibles.length;i++){
-        for(var j =0; j <interactibles[i].length;j++){
-            var item = interactibles[i][j];
+    for(var i =0; i< currentinteractibles.length;i++){
+        for(var j =0; j <currentinteractibles[i].length;j++){
+            var item = currentinteractibles[i][j];
             if(i==wall){
                 document.getElementById(item).style.display="block";
             }else{

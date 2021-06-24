@@ -13,3 +13,53 @@
     height: 25vh;
     display: none;
 }
+
+#toRiddle3Lock{
+    left:23%;
+    bottom: 23%;
+    width: 7vw;
+    height: 15vh;
+    display: none;
+}
+
+
+#toRiddle4Lock{
+    right:6%;
+    bottom: 30%;
+    width: 9vw;
+    height: 30vh; 
+}
+
+#toComputerRiddle{
+    position: absolute;
+    bottom: 57%;
+    left:45%;
+    display: none;
+    
+}
+
+#computerMonitor{
+    width: 14vw;
+    position: absolute;
+}
+
+#toExperimentRiddle{
+    position: absolute;
+    bottom: 41%;
+    right:10%; 
+    display: none;
+}
+
+#experimentSet{
+    width: 19vw;
+}
+
+#riddle-3-hint-C{
+    position: absolute;
+    width:10vw;
+    height:10vh;
+    bottom:12%;
+    height: 20vh;
+    right:26%;
+    display: none;
+}

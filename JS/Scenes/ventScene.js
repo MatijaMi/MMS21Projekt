@@ -1,4 +1,4 @@
-var unlocked = false;
+var unlockedVent = false;
 var TopRightScrew = true;
 var TopLeftScrew = true;
 var BottomRightScrew = true;
@@ -8,7 +8,7 @@ var lensePickedUp =false;
 function drawVentScene(){
     document.getElementById("backgroundImg").src="Images/Scenes/VentScene.png";
     if(screwsLeft>0){
-        if(!unlocked){
+        if(!unlockedVent){
             document.getElementById("VentCoverImage").style.display="block";
         }
         if(TopRightScrew){

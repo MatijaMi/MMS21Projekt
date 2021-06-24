@@ -1,7 +1,7 @@
 #Screwdriver{
     position: absolute;
-    top: 51.5%;
-    left:69%;
+    top: 56.5%;
+    left:55%;
     width: 5vw;
     display: none;
 }
@@ -11,5 +11,22 @@
     top: 65.5%;
     left:50%;
     width: 5vw;
+    display: none;
+}
+
+#riddle-3-hint-A{
+    position: absolute;
+    width: 5vw;
+    top:28%;
+    left: 7%;
+     display: none;
+}
+
+
+#riddle-3-hint-B{
+    position: absolute;
+    width: 5vw;
+    top:29%;
+    left: 37%;
     display: none;
 }
