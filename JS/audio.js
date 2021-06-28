@@ -25,3 +25,7 @@ function playPickupSound(){
 function playUnscrewAudio(){
      document.getElementById("unscrewAudio").play();
 }
+
+function playkeypadButton(){
+     document.getElementById("keypadButton").play();
+}

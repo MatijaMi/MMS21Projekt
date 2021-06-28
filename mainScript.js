@@ -1,26 +1,26 @@
 var wall = -1;
-var room = -1;
 var prevWall =0;
 var zoomedIn =false;
 var inventory=[];
 var inventoryPointer=0;
 var itemSelected=-1;
 var itemInHand="";
-var allItems=[["Screwdriver"],[],[],[],[],[],[],[],[],[]];
-var interactibles=[[],[],[],["VentScene"],[],[],[],[],[],[]];
-var currentItems=[[]];
+
+var currentinteractibles;
+var currentItems;
 
 function startGame(){
-   if(document.getElementById("startButton")!=null){ document.getElementById("startButton").parentElement.removeChild(document.getElementById("startButton"));
+    var allItems=[["Screwdriver","riddle-3-hint-A","riddle-3-hint-C"],[],[],["riddle-3-hint-B"],[],[],[],[],[],[]];
+    var allInteractibles=[["toRiddle3Lock","toRiddle4Lock"],[],["VentScene"],["toComputerRiddle","toExperimentRiddle"],[],[],[],[],[],[]];
+    if(document.getElementById("startButton")!=null){ document.getElementById("startButton").parentElement.removeChild(document.getElementById("startButton"));
     if(document.getElementById("StartVideo")){
         document.getElementById("StartVideo").parentElement.removeChild(document.getElementById("StartVideo"));
     }
     }
-    if(document.getElementById("endButton")!=null){
-        document.getElementById("endButton").parentElement.removeChild(document.getElementById("endButton"));
-        document.getElementById("gameOverText").parentElement.removeChild(document.getElementById("gameOverText"));
+    if(document.getElementById("restartButton")!=null){
+        document.getElementById("restartButton").style.display="none";
     }
-    document.getElementById("inventory").style.display="block"
+    document.getElementById("inventory").style.display="inline-flex";
     document.getElementById("inventoryArrowLeft").addEventListener("click",moveInventoryLeft);
     document.getElementById("inventoryArrowRight").addEventListener("click",moveInventoryRight);
     var slot = document.getElementsByClassName("inventorySlot");
@@ -30,31 +30,66 @@ function startGame(){
             chooseItem(event);
         });
     }
-    
+    document.getElementById("GameOverVideo").style.display="none";
+    document.getElementById("countdownClock").style.display="block";
+    document.getElementById("backgroundImg").style.display="block";  
     wall=0;
-    room=0;
-    drawRoom();
+    
     startCountdown();
-    inventory=[];
+    
     inventoryPointer=0;
-    currentItems=allItems;
-    itemInHand="";   
+    riddle3Solved = false;
+    unlockedVent = false;
+    topRightScrew = true;
+    TopLeftScrew = true;
+    BottomRightScrew = true;
+    BottomLeftScrew = true;
+    screwsLeft = 4;
+    lensePickedUp =false;
+    currentItems=allItems.slice();
+    currentinteractibles=allInteractibles.slice();
+    itemInHand=""; 
+    var slots =document.getElementsByClassName("inventorySlot");
+    for(var i =0; i<slots.length;i++){
+        if(i<inventory.length){
+            slots[i].style.backgroundImage="";
+        }
+    }
+    inventory=[];
+    drawWall();
 }
 
 
 
 function gameOver(){
-    document.getElementById("mainDiv").innerHTML+="<p id='gameOverText'>GAME OVER</p><br><button id='endButton'>Restart</button>";
-    document.getElementById("mainDiv").style.backgroundColor="#000";
+    document.getElementById("mainDiv").style.backgroundColor="black";
     document.getElementById("backgroundImg").src="";
-    document.getElementById("backgroundImg").style.width=0;
-    document.getElementById("backgroundImg").style.height=0;
-    document.getElementById("")
-    document.getElementById("endButton").addEventListener("click",startGame);
-}
-
-function gameWin(){
+    document.getElementById("backgroundImg").style.display="none";  
+    document.getElementById("restartButton").style.display="block";  
+    document.getElementById("inventory").style.display="none";
+    document.getElementById("countdownClock").style.display="none";
+    document.getElementById("GameOverVideo").style.display="inline-block";
+    document.getElementById("GameOverVideo").volume=0.2;
+    document.getElementById("GameOverVideo").play();
     
+    var parts =document.getElementsByClassName("grabableItems");
+    for(var i =0; i <parts.length;i++){
+        parts[i].style.display="none";
+    }
+}
+function gameWin(){
+    document.getElementById("mainDiv").style.backgroundColor="black";
+    document.getElementById("backgroundImg").src="";
+    document.getElementById("backgroundImg").style.display="none";  
+    document.getElementById("inventory").style.display="none";
+    document.getElementById("countdownClock").style.display="none";
+    document.getElementById("GameWinVideo").style.display="inline-block";
+    document.getElementById("GameWinVideo").volume=0.2;
+    document.getElementById("GameWinVideo").play();
+     var parts =document.getElementsByClassName("grabableItems");
+    for(var i =0; i <parts.length;i++){
+        parts[i].style.display="none";
+    }
     
 }
 

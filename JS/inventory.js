@@ -2,7 +2,7 @@ function pickupItem(){
     playPickupSound();
     var item = event.srcElement.id;
     document.getElementById(item).style.display="none";
-    if(wall<10){
+    if(wall<5){
         var index = currentItems[wall].indexOf(item);
         if(index>-1){
             currentItems[wall].splice(index,1);
@@ -100,22 +100,14 @@ function inspectItem(){
     image=image.substr(image.indexOf("(")+2);
     image = image.substr(0,image.indexOf(")")-1);
     document.getElementById("inspectionScreen").style.display="block";
+    document.getElementById("dimmnesBox").style.display="block";
     document.getElementById("leaveInspectButton").addEventListener("click", leaveInspectScreen);
     document.getElementById("inspectionImage").src=image;
-    var description="";
-    var item = image.substr(image.indexOf("Inventory/")+10);
-    item= item.substr(0,item.indexOf("."));
-    for(var i =0; i <descriptions.entries.length;i++){
-        if(item==descriptions.entries[i].itemName){
-            description=descriptions.entries[i].description;
-        }
-    }
-    document.getElementById("ObjectDescription").innerHTML=description;
-    
 }
 
 function leaveInspectScreen(){
     document.getElementById("inspectionScreen").style.display="none";
+    document.getElementById("dimmnesBox").style.display="none";
 }
 
 function removeClass(className){

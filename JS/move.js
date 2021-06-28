@@ -1,42 +1,33 @@
 function moveTop(){
     prevWall=wall;
-    if(room==0){
-        wall=4;
-    }else{
-        wall=9;
-    }
+    wall=4;
     playClickSound();
-    drawRoom();
+    drawWall();
 }
 function moveLeft(){
-    if(room==0){
-        if(wall==0){
-            wall=3;
-        }else{
-            wall-=1;
-        }
+    if(wall==0){
+        wall=3;
     }else{
-        if(wall==5){
-            wall=8;
-        }else{
-            wall-=1;
-        }
+        wall-=1;
     }
     playClickSound();
-    drawRoom();
+    drawWall();
 }
 function moveRight(){
-    wall=(wall+1)%4+5*room;
+    wall=(wall+1)%4;
     playClickSound();
-    drawRoom();
+    drawWall();
 }
 function moveBottom(){
     var parts =document.getElementsByClassName("SceneParts");
     for(var i =0; i <parts.length;i++){
         parts[i].style.display="none";
     }
+    document.getElementById("backgroundImg").style.display="block";
+    document.getElementById("dimmnesBox").style.display="none";
+    
     wall=prevWall;
     playClickSound();
-    drawRoom();
+    drawWall();
 }
 

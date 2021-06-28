@@ -12,54 +12,62 @@
         <link rel="stylesheet" href="CSS/baseStyle.css">
         <link rel="stylesheet" href="CSS/itemStyle.css">
         <link rel="stylesheet" href="CSS/sceneStyle.css">
+        <link rel="stylesheet" href="CSS/audioGame.css">
         <link rel="stylesheet" href="CSS/toSceneStyles.css">
         <!-- Import for all the scripts that are used for the various parts-->
 		<script src="mainScript.js"></script>
-		<script src="itemDescriptions.json"></script>
 		<script src="JS/inventory.js"></script>
 		<script src="JS/audio.js"></script>
 		<script src="JS/timer.js"></script>
 		<script src="JS/move.js"></script>
 		<script src="JS/presenter.js"></script>
 		<script src="JS/Scenes/ventScene.js"></script>
+		<script src="JS/Scenes/riddle-3-lock.js"></script>
+		<script src="JS/Scenes/riddle-4-lock.js"></script>
     </head>
     
     <body>
         
         <div id="mainDiv">
             <!-- The Image used to display what is currently the main scene of the room-->
-            <img id="backgroundImg" src="">
+            <div id="backgroundImg" >
+                <img id="backgroundImgLeftHalf" src="">
+                <img id="backgroundImgRightHalf" src="">
+            </div>
             
             <!--Intro Film and some code to make it autoplay properly-->
             <iframe src="Images/silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-            <video autoplay id="StartVideo"><source src="Images/START.mp4" type="video/mp4" ></video> 
+            <video autoplay id="StartVideo"><source src="Videos/START.mp4" type="video/mp4" ></video>
+            <video autoplay id="GameOverVideo"><source src="Videos/GameOverVideo.mp4" type="video/mp4" ></video>
+            <video autoplay id="GameWinVideo"><source src="Videos/GameWinVideo.mp4" type="video/mp4" ></video>
             
             <button id=startButton onclick="startGame()"></button>
+            <button id=restartButton onclick="startGame()"></button>
             
             <!-- Inventory HTML-->
             <div id="inventory">
                 <div id="inventoryArrowLeft"></div>
-                <div id="inventoryArrowRight"></div>
                 <div class="inventorySlot" id="inventorySlot0"></div>
                 <div class="inventorySlot" id="inventorySlot1"></div>
                 <div class="inventorySlot" id="inventorySlot2"></div>
                 <div class="inventorySlot" id="inventorySlot3"></div>
                 <div class="inventorySlot" id="inventorySlot4"></div>
                 <div class="inventorySlot" id="inventorySlot5"></div>
+                <div id="inventoryArrowRight"></div>
             </div>
             
             <!-- HTML for the Inventory Screen-->
             <div id="inspectionScreen"> 
                 <img id="inspectionImage" src="">
-                <div id="ObjectDescription"></div>
                 <button id="leaveInspectButton">X</button>
             </div>
             
+            <div id="dimmnesBox"></div>
+            
             <!-- Arrows for navigation in the screens-->
-            <div id="topArrow" class="arrowButtons"></div>
-            <div id="bottomArrow" class="arrowButtons"></div>
-            <div id="leftArrow" class="arrowButtons"></div>
-            <div id="rightArrow" class="arrowButtons"></div>
+            <div id="bottomArrow" class="arrowButtons" onclick="moveBottom()"></div>
+            <div id="leftArrow" class="arrowButtons"  onclick="moveLeft()"></div>
+            <div id="rightArrow" class="arrowButtons"  onclick="moveRight()"></div>
             
             <!-- The Countdown Clock-->
             <div id="countdownClock"></div>
@@ -73,13 +81,23 @@
             <audio  src="Audio/click.wav" id= "clickAudio" display ="none"></audio>        
             <audio  src="Audio/pickup.wav" id= "pickupAudio" display ="none"></audio>        
             <audio  src="Audio/unscrew.wav" id= "unscrewAudio" display ="none"></audio>        
+            <audio  src="Audio/keypadButton.wav" id= "keypadButton" display ="none"></audio>        
             
             <!-- All the Inventory Items go here-->
-            <img id="Screwdriver" src="Images/Items/Screwdriver.svg" onclick="pickupItem()">
-            <img id="Lense" src="Images/Items/Lense.png" onclick="pickupItem()">
+            <img id="Screwdriver" class="grabableItems" src="Images/Items/Screwdriver.svg" onclick="pickupItem()">
+            <img id="Lense" class="grabableItems" src="Images/Items/Lense.png" onclick="pickupItem()">
+            <img id="riddle-3-hint-A" class="grabableItems" src="Images/Items/riddle-3-hint-A.png" onclick="pickupItem()">
+            <img id="riddle-3-hint-B" class="grabableItems" src="Images/Items/riddle-3-hint-B.png" onclick="pickupItem()">
             
             <!-- All the buttons to go to a scene go here-->
             <button class="SceneButton" id="VentScene" onclick="drawVentScene()"> </button>
+            <button class="SceneButton" id="riddle-3-hint-C" onclick="pickupItem()"> </button>
+            <button class="SceneButton" id="toRiddle3Lock" onclick="drawRiddle3Scene()"></button>
+            <button class="SceneButton" id="toRiddle4Lock" onclick="drawRiddle4Scene()"></button>
+            <button class="SceneButton" id="toComputerRiddle" onclick="drawComputerRiddle()"><img id="computerMonitor" src="Images/Final/computer.png"></button>
+            <button class="SceneButton" id="toExperimentRiddle" onclick="drawExperimentRiddle()"><img id="experimentSet" src="Images/Final/experiment-1.png"></button>
+            
+            
             
             <!-- All the extra things, aka things to interact with in each scene go here-->
             <div id='VentCover' class="SceneParts">
@@ -89,8 +107,9 @@
                 <button id='BottomLeftScrew' onclick='removeScrew()'>X</button>
                 <button id='BottomRightScrew' onclick='removeScrew()'>X</button>
             </div>
-            
-            <div class="audio1">
+			
+			
+			<div class="audio1">
                 <button id="melody1Button">
                     <img src="" alt="Image1">
                 </button>
@@ -105,6 +124,50 @@
                     <img src="" alt="Image3">
                 </button>
             </div>
+
+
+            
+            <div id="riddle3Lock" class="SceneParts">
+                
+                <div id="riddle3TextField">_ _ _</div>
+                <img id="riddle3LockTraingle" src="Images/Final/riddle-3-lock.png">
+                <div id="riddle3Keypad">
+                    <button id="riddle3Keypad0" class="riddle3KeypadButton" onclick="riddle3KeypadClick(0)">0</button>
+                    <button id="riddle3Keypad1" class="riddle3KeypadButton" onclick="riddle3KeypadClick(1)">1</button>
+                    <button id="riddle3Keypad2" class="riddle3KeypadButton" onclick="riddle3KeypadClick(2)">2</button>
+                    <button id="riddle3Keypad3" class="riddle3KeypadButton" onclick="riddle3KeypadClick(3)">3</button>
+                    <button id="riddle3Keypad4" class="riddle3KeypadButton" onclick="riddle3KeypadClick(4)">4</button>
+                    <button id="riddle3Keypad5" class="riddle3KeypadButton" onclick="riddle3KeypadClick(5)">5</button>
+                    <button id="riddle3Keypad6" class="riddle3KeypadButton" onclick="riddle3KeypadClick(6)">6</button>
+                    <button id="riddle3Keypad7" class="riddle3KeypadButton" onclick="riddle3KeypadClick(7)">7</button>
+                    <button id="riddle3Keypad8" class="riddle3KeypadButton" onclick="riddle3KeypadClick(8)">8</button>
+                    <button id="riddle3Keypad9" class="riddle3KeypadButton" onclick="riddle3KeypadClick(9)">9</button>
+                    <button id="riddle3KeypadGreen" class="riddle3KeypadButton"></button>
+                    <button id="riddle3KeypadRed" class="riddle3KeypadButton"></button>
+                </div>
+            
+            </div>
+            
+            <div id="riddle4Lock" class="SceneParts">
+                
+                <div id="riddle4TextField">_ _ _</div>
+                <img id="riddle4LockTraingle" src="Images/Final/riddle-4-lock.png">
+                <div id="riddle4Keypad">
+                    <button id="riddle4Keypad0" class="riddle4KeypadButton" onclick="riddle4KeypadClick(0)">0</button>
+                    <button id="riddle4Keypad1" class="riddle4KeypadButton" onclick="riddle4KeypadClick(1)">1</button>
+                    <button id="riddle4Keypad2" class="riddle4KeypadButton" onclick="riddle4KeypadClick(2)">2</button>
+                    <button id="riddle4Keypad3" class="riddle4KeypadButton" onclick="riddle4KeypadClick(3)">3</button>
+                    <button id="riddle4Keypad4" class="riddle4KeypadButton" onclick="riddle4KeypadClick(4)">4</button>
+                    <button id="riddle4Keypad5" class="riddle4KeypadButton" onclick="riddle4KeypadClick(5)">5</button>
+                    <button id="riddle4Keypad6" class="riddle4KeypadButton" onclick="riddle4KeypadClick(6)">6</button>
+                    <button id="riddle4Keypad7" class="riddle4KeypadButton" onclick="riddle4KeypadClick(7)">7</button>
+                    <button id="riddle4Keypad8" class="riddle4KeypadButton" onclick="riddle4KeypadClick(8)">8</button>
+                    <button id="riddle4Keypad9" class="riddle4KeypadButton" onclick="riddle4KeypadClick(9)">9</button>
+                    <button id="riddle4KeypadGreen" class="riddle4KeypadButton"></button>
+                    <button id="riddle4KeypadRed" class="riddle4KeypadButton"></button>
+                </div>
+            
+            </div>
             
         </div>
         
@@ -113,6 +176,7 @@
     <script>
         document.getElementById("StartVideo").volume=0.2;
         document.getElementById("errorAudio").volume=0.2;
+        
         const myVideo = document.getElementById('StartVideo');
 
         const playPromise = myVideo.play() || Promise.reject('');

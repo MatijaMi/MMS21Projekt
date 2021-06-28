@@ -1,5 +1,6 @@
 #melody1Button
 {
+    display: none;
 	border: none;
 	padding: 0;
 	background: transparent;
@@ -24,6 +25,7 @@
 }
 #melody2Button
 {
+    display: none;
 	border: none;
 	padding: 0;
 	background: transparent;
@@ -48,6 +50,7 @@
 }
 #melody3Button
 {
+    display: none;
 	border: none;
 	padding: 0;
 	background: transparent;

@@ -1,6 +1,6 @@
 function startCountdown(){
     document.getElementById("countdownClock").style.opacity="100%";
-    document.getElementById("countdownClock").innerHTML="30:00";
+    document.getElementById("countdownClock").innerHTML="15:00";
     playTimeBeep();
     function waitaSec(){
         setTimeout(updateCountdown,1000)
@@ -31,7 +31,7 @@ function startCountdown(){
         if((minutes==20 || minutes==15 || minutes==10) && seconds ==0){
             playTimeBeep();
         } 
-        if(minutes =="00"){
+        if(minutes =="00" && seconds<=30){
             playTimeBeep();
         }
         waitaSec();
