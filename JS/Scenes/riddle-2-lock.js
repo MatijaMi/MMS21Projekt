@@ -1,5 +1,6 @@
 var riddle2Combination = "1 2 9";
 var riddle2Solved = false;
+
 function drawRiddle2Scene(){
     prevWall =wall;
     document.getElementById("riddle2Lock").style.display="block";

@@ -1,3 +1,4 @@
+//Most of the various sound effects used in the game, made very accesible and easy to add to action
 function playSuccesSound(){
      document.getElementById("successAudio").play();
 }

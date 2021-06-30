@@ -9,11 +9,12 @@ function drawComputerRiddle(){
     document.getElementById("backgroundMusic").volume=0.0;
     showArrow("left",false);
     showArrow("right",false);
-    showArrow("bottom", true);
-    
+    showArrow("bottom", true); 
 }
 
+//Function that plays melody based on which button is pressed and stops the rest so it can be heard uninterupted
 function playMelody(melody){
+    //Reset
     document.getElementById("melody1").pause();
     document.getElementById("melody1").currentTime=0;
     document.getElementById("melody2").pause();
@@ -22,6 +23,7 @@ function playMelody(melody){
     document.getElementById("melody3").currentTime=0;
     document.getElementById("completeMelody").pause();
     document.getElementById("completeMelody").currentTime=0;
+    
     switch(melody){
         case 0:
             document.getElementById("completeMelody").volume=0.4;
@@ -40,6 +42,7 @@ function playMelody(melody){
             document.getElementById("melody1").play();
             break;
     }
+    //Checking for correct input
     if(melody>0){
         enteredCombination+=melody;
         if(enteredCombination.length==3){

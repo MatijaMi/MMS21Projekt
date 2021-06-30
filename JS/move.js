@@ -1,9 +1,4 @@
-function moveTop(){
-    prevWall=wall;
-    wall=4;
-    playClickSound();
-    drawWall();
-}
+//Functions used by the arrows to move the player around in the room
 function moveLeft(){
     if(wall==0){
         wall=3;
@@ -23,8 +18,8 @@ function moveBottom(){
     for(var i =0; i <parts.length;i++){
         parts[i].style.display="none";
     }
+    
     document.getElementById("riddle-1-b").style.display="none";
-    document.getElementById("backgroundImg").style.display="block";
     document.getElementById("dimmnesBox").style.display="none";
     document.getElementById("backgroundMusic").volume=0.1;
     document.getElementById("melody1").pause();

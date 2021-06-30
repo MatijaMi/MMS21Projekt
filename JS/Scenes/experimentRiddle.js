@@ -1,19 +1,17 @@
-var computerRiddleSolved = false;
-var melodyCombination = "33213";
 var valves =[0,0,0];
 
 function drawExperimentRiddle(){
     prevWall =wall;
     document.getElementById("experimentRiddleScreen").style.display="block";
+    document.getElementById("experimentScreenImage").src="Images/Final/experiment-1.png";
     document.getElementById("dimmnesBox").style.display="block";
     showArrow("left",false);
     showArrow("right",false);
     showArrow("bottom", true);
 }
 
-
+//Depending on what valves are open the right images is shown to the player
 function releaseValve(valve){
-    console.log(valve);
     var index =0;
     valves[valve]= (valves[valve]+1)%2;
     

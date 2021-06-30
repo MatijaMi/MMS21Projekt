@@ -20,15 +20,27 @@ body{
      cursor: pointer;
 }
 
-#mainDiv p{
-    position: relative;
-    top:30%;
-    border: 0;
-    margin: 0;
-    color:white;
-    font-size: 50px;
-    width: 100vw;   
+#IntroVideo{
+    height: 99%;  
+    overflow: hidden;
+    display: none;
 }
+
+#introStartButton{
+    position: absolute;
+    bottom:5%;
+    right: 3%;
+    font-size: 35px;
+    padding: 7px;
+    border: 10px solid #000;
+    background-color: #ffed86;
+    color:black;
+    border-radius: 20px; 
+    cursor: pointer;
+    display: none;
+}
+
+
 
 #leftArrow{
     width: 0px;
@@ -39,7 +51,7 @@ body{
     border-top: 6vh solid transparent;
     border-right: 3vh solid #000;
     border-bottom: 6vh solid transparent;
-
+    display: none;
 }
 
 #rightArrow{
@@ -51,6 +63,7 @@ body{
     border-top: 6vh solid transparent;
     border-left: 3vh solid #000;
     border-bottom: 6vh solid transparent;
+    display: none;
 }
 
 
@@ -58,12 +71,13 @@ body{
     width: 0px;
     height: 0px;
     position: absolute;
-    top:97%;
+    top:96%;
     z-index: 9;
     left:47%;
     border-left: 6vh solid transparent;
     border-right: 6vh solid transparent;
     border-top: 3vh solid #000;
+    display: none;
 }
 
 #leftArrow:hover{
@@ -77,7 +91,7 @@ body{
 
 #bottomArrow:hover{
     border-top: 2.9vh solid #2222dd;
-    top:97.1%;
+    top:96.1%;
 }
 
 #startButton{
@@ -122,6 +136,7 @@ body{
     border:6px solid #444;
     font-size: 3vh;
     font-family: digital-clock-font;
+    z-index: 12;
 }
 #countdownClock div{
     display: inline-block;
@@ -129,7 +144,7 @@ body{
 
 @font-face{
  font-family:'digital-clock-font';
- src: url('../DIGITALDREAM.ttf');
+ src: url('../CSS/DIGITALDREAM.ttf');
 }
 
 
@@ -175,126 +190,39 @@ body{
 #inventory{
     padding: none;
     display: none;
-    border:3px solid black;
+    border:none;
     height: 11vh;
-    background-color: gray;
-    z-index: 9;
+    width: 45%;
+    background-color: #0006;
+    z-index: 20;
     position: absolute;
-    left:3%;
-    bottom: 4%;
+    right:1%;
+    bottom: 2%;
     border-radius: 10px;
-    overflow: hidden;
 }
 
 .inventorySlot{
     margin: 2%;
-    width: 4vw;
-    height: 75%;
-    background-color: #fff;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 9%;
+    height: 90%;
+    background-color: transparent;
     display: inline-block;
-    z-index: 10;
+    z-index: 20;
     text-align: center;
     cursor: pointer;
     background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
-    border:2px solid black;
-    overflow: hidden;
+    border:none;
     border-radius: 5px;
 }
 
-.inspectButton{
+.inventorySlot:hover{
+    z-index: 21;
+    transform: scale(3);
     position: relative;
-    top:75%;
-    background-color: #6666dd;
-    color:white;
-    cursor: pointer;
+    bottom: 90%;
 }
 
-#inventoryArrowLeft{
-    width: 0px;
-    height: 0px;
-    display: inline-block;
-    margin-left: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
-    border-top: 4vh solid transparent;
-    border-right: 2vh solid orange;
-    border-bottom: 4vh solid transparent;
-    cursor: pointer; 
-    z-index: 10;
-}
-
-
-#inventoryArrowRight{
-    width: 0px;
-    height: 0px;
-    display: inline-block;
-    z-index: 10;
-    margin-left: 1px;
-    margin-right: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
-    border-top: 4vh solid transparent;
-    border-left: 2vh solid orange;
-    border-bottom: 4vh solid transparent;
-    cursor: pointer;
-}
-
-#inventoryArrowLeft:hover{
-    border-right: 2vh solid #ffd800ff;
-}
-
-#inventoryArrowRight:hover{
-    border-left: 2vh solid #ffd800ff;
-}
-
-#inspectionImage{
-    position: relative;
-    left: auto;
-    right: auto;
-    top: 7%;
-    width: 30vw;
-    height: 80vh;
-    background-color: white;
-    border: 5px solid black;
-}
-
-#inspectionScreen{
-    display: none;
-    position: absolute;
-    top:5%;
-    left:35%;
-    right: auto;
-    z-index: 10;
-    background-color: #aaa;
-    background-size: contain;
-    background-repeat: no-repeat;  
-    border: solid 7px black;
-    border-radius: 20px;
-    padding: 20px;
-    padding-top: 60px;
-}
-
-#leaveInspectButton{
-    position: absolute;
-    cursor: pointer;
-    right: 1%;
-    top: 1%;
-    font-size: 30px;
-    background-color: #cc0000;
-    border:3px solid black;
-    border-radius: 45px;
-}
-
-#ObjectDescription{
-    position: absolute;
-    left: calc(10% - 15px);
-    bottom:5%;
-    border: 5px solid black;
-    border-radius: 5px;
-    background-color: #dddddd;
-    padding: 10px;
-    width:80%;
-    height: 60;;
-    text-align: left;
-}
