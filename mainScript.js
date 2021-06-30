@@ -10,8 +10,9 @@ var currentinteractibles;
 var currentItems;
 
 function startGame(){
-    var allItems=[["Screwdriver","riddle-3-hint-A","riddle-3-hint-C"],[],[],["riddle-3-hint-B"],[],[],[],[],[],[]];
-    var allInteractibles=[["toRiddle3Lock","toRiddle4Lock"],[],["VentScene"],["toComputerRiddle","toExperimentRiddle"],[],[],[],[],[],[]];
+    var allItems=[["Screwdriver","riddle-1-a","riddle-3-a","riddle-3-b"],[],["riddle-4-hint"],["riddle-1-c","riddle-2-hint"]];
+    
+    var allInteractibles=[["toriddle1Lock","toriddle2Lock"],["toPeriodicTable","toRiddle4Lock","toVentScene"],["toRiddle3Lock"],["toComputerRiddle","toExperimentRiddle"]];
     if(document.getElementById("startButton")!=null){ document.getElementById("startButton").parentElement.removeChild(document.getElementById("startButton"));
     if(document.getElementById("StartVideo")){
         document.getElementById("StartVideo").parentElement.removeChild(document.getElementById("StartVideo"));
@@ -36,16 +37,16 @@ function startGame(){
     wall=0;
     
     startCountdown();
-    
+    document.getElementById("backgroundMusic").volume=0.1;
+    document.getElementById("backgroundMusic").play();
     inventoryPointer=0;
-    riddle3Solved = false;
+    riddle1Solved = false;
     unlockedVent = false;
     topRightScrew = true;
     TopLeftScrew = true;
     BottomRightScrew = true;
     BottomLeftScrew = true;
     screwsLeft = 4;
-    lensePickedUp =false;
     currentItems=allItems.slice();
     currentinteractibles=allInteractibles.slice();
     itemInHand=""; 

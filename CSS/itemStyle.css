@@ -1,32 +1,81 @@
 #Screwdriver{
     position: absolute;
-    top: 56.5%;
-    left:55%;
+    bottom: 41%;
+    right: 62%;
     width: 5vw;
+    height: 3vh;
     display: none;
 }
 
-#Lense{
+#riddle-1-a{
     position: absolute;
-    top: 65.5%;
-    left:50%;
-    width: 5vw;
-    display: none;
-}
-
-#riddle-3-hint-A{
-    position: absolute;
-    width: 5vw;
-    top:28%;
-    left: 7%;
+    width: 4vw;
+    height: 5vh;
+    top:55%;
+    left: 27%;
      display: none;
 }
 
 
-#riddle-3-hint-B{
+#riddle-1-b{
     position: absolute;
     width: 5vw;
+    height: 13vh;
     top:29%;
     left: 37%;
     display: none;
+}
+
+#riddle-1-c{
+    position: absolute;
+    width: 3%; 
+    height: 6%;
+    top: -10%;
+    left: 17.5%; 
+}
+
+#riddle-2-hint{
+    position: absolute;
+    width: 3%; 
+    height: 6%;
+    top: -10%;
+    left: 21%; 
+}
+
+#riddle-1-b{
+    position: absolute;
+    top:51.5%;
+    left:33%;
+    width:5%;
+    height:13%;
+    z-index: 11;
+    display: none;
+}
+
+#riddle-3-b{
+    position: absolute;
+    top:-26.5%;
+    right:9.5%;
+    width:3%;
+    height:10%;
+    display: none;
+}
+
+#riddle-3-a{
+    position: absolute;
+    top:-67.5%;
+    left:29.5%;
+    width:5%;
+    height:13%;
+    display: none; 
+}
+
+
+#riddle-4-hint{
+    position: absolute;
+    top:-46.5%;
+    left:52.2%;
+    width:4%;
+    height:12%;
+    display: none; 
 }

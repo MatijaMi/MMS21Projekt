@@ -2,12 +2,11 @@ function pickupItem(){
     playPickupSound();
     var item = event.srcElement.id;
     document.getElementById(item).style.display="none";
-    if(wall<5){
-        var index = currentItems[wall].indexOf(item);
-        if(index>-1){
+    var index = currentItems[wall].indexOf(item);
+    if(index>-1){
             currentItems[wall].splice(index,1);
-        }
     }else{
+        console.log(item);
         handleItemPickup(item);
     }
     inventory.push(item);
@@ -15,7 +14,7 @@ function pickupItem(){
     var slots =document.getElementsByClassName("inventorySlot");
     for(var i =0; i<slots.length;i++){
         if(i<inventory.length){
-        slots[i].style.backgroundImage="url(Images/Inventory/" + inventory[inventoryPointer+i] +".png)";
+        slots[i].style.backgroundImage="url(Images/Final/" + inventory[inventoryPointer+i] +".png)";
         }
     }
 }
@@ -71,7 +70,7 @@ function chooseItem(event){
                 document.getElementById("inspectButton"+slotNumber).addEventListener("click", function(){
                 inspectItem(slotNumber)});
                 var imageUrl =slots[slotNumber].style.backgroundImage;
-                var item = imageUrl.substr(imageUrl.indexOf("Inventory/")+10);
+                var item = imageUrl.substr(imageUrl.indexOf("Final/")+6);
                 itemInHand= item.substr(0,item.indexOf("."));
             }
         }
@@ -85,7 +84,7 @@ function chooseItem(event){
         });
         }
         var imageUrl =slots[slotNumber].style.backgroundImage;
-        var item = imageUrl.substr(imageUrl.indexOf("Inventory/")+10);
+        var item = imageUrl.substr(imageUrl.indexOf("Final/")+6);
         itemInHand= item.substr(0,item.indexOf("."));
         itemSelected=slotNumber;
     }
@@ -120,8 +119,8 @@ function removeClass(className){
 
 function handleItemPickup(item){
     switch(item){
-        case "Lense":
-            lensePickedUp=true;
+        case "riddle-1-b":
+            ventHintPickedUp=true;
             break;
     }
 }

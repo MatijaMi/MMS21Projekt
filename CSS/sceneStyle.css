@@ -1,11 +1,13 @@
-#VentCover{
+#ventScene{
     position: absolute;
-    left:28.6%;
-    top:21%;
-    z-index: 2;
-    width: 43vw;
-    height: 58vh;
+    left:20%;
+    top:5%;
+    z-index: 10;
+    width: 60%;
+    height: 76%;
     display: none;
+    border: 10px solid black;
+    border-radius: 10px;
 }
 
 #VentCoverImage{
@@ -18,8 +20,8 @@
     background-color: gray;
     position: absolute;
     z-index: 3;
-    right:2%;
-    bottom:3%;
+    right:21%;
+    bottom:21%;
     border: 3px solid black;
     border-radius: 10px;
     display: none;
@@ -29,19 +31,19 @@
      background-color: gray;
     position: absolute;
     z-index: 3;
-    right:2%;
-    top:3%;
+    right:21%;
+    top:19%;
     border: 3px solid black;
     border-radius: 10px;
     display: none;
 }
 
 #BottomLeftScrew{
-     background-color: gray;
+    background-color: gray;
     position: absolute;
     z-index: 3;
-    left:2%;
-    bottom:3%;
+    left:18%;
+    bottom:21%;
     border: 3px solid black;
     border-radius: 10px;
     display: none;
@@ -51,14 +53,14 @@
     background-color: gray;
     position: absolute;
     z-index: 3;
-    left:2%;
-    top:3%;
+    left:18%;
+    top:19%;
     border: 3px solid black;
     border-radius: 10px;
     display: none;
 }
 
-#riddle3Lock, #riddle4Lock{
+#riddle1Lock, #riddle2Lock, #riddle3Lock, #riddle4Lock{
     z-index: 10;
     border: 15px solid black;
     position: absolute;
@@ -71,14 +73,39 @@
     display: none;
 }
 
-#riddle3LockTraingle, #riddle4LockTraingle{
-    height: 30%;
+#riddle1LockTraingle{
+    height: 35%;
+    width: 40%;
     position: absolute;
-    left:10%;
-    bottom: 15%; 
+    left:5%;
+    bottom: 20%; 
 }
 
-#riddle3TextField,#riddle4TextField{
+#riddle2LockMoon{
+    height: 40%;
+    width: 40%;
+    position: absolute;
+    left:5%;
+    bottom: 20%; 
+}
+
+#riddle3LockStar{
+    height: 40%;
+    width: 40%;
+    position: absolute;
+    left:5%;
+    bottom: 20%; 
+}
+
+#riddle4LockCircle{
+    height: 30%;
+    width: 40%;
+    position: absolute;
+    left:5%;
+    bottom: 20%; 
+}
+
+#riddle1TextField,#riddle2TextField, #riddle3TextField, #riddle4TextField{
     position: absolute;
     width:90%;
     height:10%;
@@ -93,7 +120,7 @@
     margin:0px;
 }
 
-#riddle3Keypad, #riddle4Keypad{
+#riddle1Keypad, #riddle2Keypad, #riddle3Keypad, #riddle4Keypad{
     width:45%;
     height: 60%;
     position: absolute;
@@ -101,7 +128,7 @@
     bottom: 5%;
 }
 
-.riddle3KeypadButton, .riddle4KeypadButton{
+.riddle1KeypadButton, .riddle2KeypadButton, .riddle3KeypadButton, .riddle4KeypadButton{
     font-size: 7vh;
     border:5px solid black;
     background-color: #333;
@@ -111,76 +138,185 @@
     color:white;
 }
 
-#riddle3Keypad0,#riddle4Keypad0{
+#riddle1Keypad0,#riddle2Keypad0, #riddle3Keypad0, #riddle4Keypad0{
     position: absolute;
     top:69%;
     right:33%;
 }
 
-#riddle3Keypad1,#riddle4Keypad1{
+#riddle1Keypad1,#riddle2Keypad1, #riddle3Keypad1, #riddle4Keypad1{
     position: absolute;
     top:0%;
     right: 66%;
 }
 
-#riddle3Keypad2, #riddle4Keypad2{
+#riddle1Keypad2, #riddle2Keypad2,#riddle3Keypad2, #riddle4Keypad2{
     position: absolute;
     top:0%;
     right:33%;
 }
 
-#riddle3Keypad3, #riddle4Keypad3{
+#riddle1Keypad3, #riddle2Keypad3, #riddle3Keypad3, #riddle4Keypad3{
     position: absolute;
     top:0%;
     right:0%;
 }
 
-#riddle3Keypad4, #riddle4Keypad4{
+#riddle1Keypad4, #riddle2Keypad4, #riddle3Keypad4, #riddle4Keypad4{
     position: absolute;
     top:23%;
     right: 66%;
 }
 
-#riddle3Keypad5, #riddle4Keypad5{
+#riddle1Keypad5, #riddle2Keypad5, #riddle3Keypad5, #riddle4Keypad5{
     position: absolute;
     top:23%;
     right:33%;
 }
 
-#riddle3Keypad6, #riddle4Keypad6{
+#riddle1Keypad6, #riddle2Keypad6,#riddle3Keypad6, #riddle4Keypad6{
     position: absolute;
     top:23%;
     right:0%;
 }
 
-#riddle3Keypad7, #riddle4Keypad7{
+#riddle1Keypad7, #riddle2Keypad7, #riddle3Keypad7, #riddle4Keypad7{
     position: absolute;
     top:46%;
     right: 66%;
 }
 
-#riddle3Keypad8, #riddle4Keypad8{
+#riddle1Keypad8, #riddle2Keypad8,#riddle3Keypad8,  #riddle4Keypad8{
     position: absolute;
     top:46%;
     right:33%;
 }
 
-#riddle3Keypad9, #riddle4Keypad9{
+#riddle1Keypad9, #riddle2Keypad9,#riddle3Keypad9, #riddle4Keypad9{
     position: absolute;
     top:46%;
     right:0%;
 }
 
-#riddle3KeypadGreen,#riddle4KeypadGreen{
+#riddle1KeypadGreen,#riddle2KeypadGreen,#riddle3KeypadGreen, #riddle4KeypadGreen{
     position: absolute;
     top:69%;
     right:0%;
     background-color: darkgreen;
 }
 
-#riddle3KeypadRed,#riddle4KeypadRed{
+#riddle1KeypadRed,#riddle2KeypadRed, #riddle3KeypadRed, #riddle4KeypadRed{
     position: absolute;
     top:69%;
     right: 66%;
     background-color: brown;
+}
+
+#computerRiddleScreen{
+    display: none;
+    position: absolute;
+    top:15%;
+    left:20%;
+    z-index: 10;
+    width: 60%;
+    height: 55%;
+}
+
+.computerButtons{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top:43%;
+    width: 19%;
+    height: 40%;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#computerScreenImage{
+    width: 100%;
+    height: 100%;
+}
+
+#computerPlayButton{
+    left:8%;
+}
+
+#computerButton1{
+    left:30%;
+}
+
+#computerButton2{
+    left:51%;
+}
+
+#computerButton3{
+    left:72%;
+}
+
+
+#experimentRiddleScreen{
+    display: none;
+    position: absolute;
+    top:15%;
+    left:20%;
+    z-index: 10;
+    width: 60%;
+    height: 65%;
+    border: 10px solid black;
+    border-radius: 10px;
+}
+#experimentScreenImage{
+    height: 80%;
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    z-index: 8;
+    bottom: 5%;
+}
+#experimentBackground{
+    position: absolute;
+    top:0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+}
+.experimentButton{
+   background-color: transparent;
+    border: none;
+    position: absolute;
+    top:29%;
+    width: 11%;
+    height: 17%;
+    cursor: pointer;
+    z-index: 9;
+    display: inline-block;
+}
+
+#experimentButtonA{
+    left: 39%;
+}
+
+#experimentButtonB{
+    left: 53%;
+}
+
+#experimentButtonC{
+    left: 67%;
+}
+
+#periodicTableScene{
+    position: absolute;
+    display: none;
+    width: 80%;
+    height: 70%;
+    top:10%;
+    z-index: 10;
+    left: 10%;
+}
+
+#periodicTableFullImage{
+    width: 100%;
+    height: 100%;
 }
