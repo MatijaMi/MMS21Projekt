@@ -4,9 +4,9 @@ var TopLeftScrew = true;
 var BottomRightScrew = true;
 var BottomLeftScrew = true;
 var screwsLeft = 4;
-var lensePickedUp =false;
+var ventHintPickedUp =false;
+
 function drawVentScene(){
-    document.getElementById("backgroundImg").src="Images/Scenes/VentScene.png";
     if(screwsLeft>0){
         if(!unlockedVent){
             document.getElementById("VentCoverImage").style.display="block";
@@ -23,17 +23,20 @@ function drawVentScene(){
         if(BottomRightScrew){
             document.getElementById("BottomRightScrew").style.display="block";
         }
-        document.getElementById("VentCover").style.display="block";
+        document.getElementById("ventScene").style.display="block";
     }else{
-        if(!lensePickedUp){
-            document.getElementById("Lense").style.display="block";
+        document.getElementById("ventScene").style.display="block";
+        document.getElementById("VentCoverImage").src='Images/Final/ventSceneOpen.png';
+        if(!ventHintPickedUp){
+            document.getElementById("riddle-1-b").style.display="block";
         }
     }
+    
     prevWall =wall;
-    wall = 19;
-    drawUI();
-    drawItemsOnWall(wall);
-    drawInteractibles(wall);
+    document.getElementById("dimmnesBox").style.display="block";
+    showArrow("left",false);
+    showArrow("right",false);
+    showArrow("bottom", true);
 }
 
 
@@ -45,8 +48,10 @@ function removeScrew(){
     document.getElementById(screw).remove();
     screwsLeft--;
     if(screwsLeft==0){
-        document.getElementById("VentCover").style.display="none";
-        document.getElementById("Lense").style.display="block";
+        unlockedVent=true;
+        document.getElementById("VentCoverImage").src='Images/Final/ventSceneOpen.png';
+        document.getElementById("backgroundImgLeftHalf").src="Images/Final/wall-e-l-2.png";
+        document.getElementById("riddle-1-b").style.display="block";
     }
     switch(screw){
         case "TopRightScrew":

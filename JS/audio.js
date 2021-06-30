@@ -29,3 +29,7 @@ function playUnscrewAudio(){
 function playkeypadButton(){
      document.getElementById("keypadButton").play();
 }
+
+function playFluidSound(){
+     document.getElementById("fluidSound").play();
+}

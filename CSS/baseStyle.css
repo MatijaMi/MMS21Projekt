@@ -8,8 +8,8 @@ body{
 }
 
 #mainDiv{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: black;
     text-align: center;
     background-attachment: fixed;
@@ -67,14 +67,17 @@ body{
 }
 
 #leftArrow:hover{
-    border-right: 24px solid #2222dd;
+    left:1.1%;
+    border-right: 2.9vh solid #2222dd;
 }
 #rightArrow:hover{
-    border-left: 24px solid #2222dd;
+    left:97.95%;
+    border-left: 2.9vh solid #2222dd;
 }
 
 #bottomArrow:hover{
-    border-top: 24px solid #2222dd;
+    border-top: 2.9vh solid #2222dd;
+    top:97.1%;
 }
 
 #startButton{
