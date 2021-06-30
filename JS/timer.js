@@ -3,7 +3,7 @@ var timeOut;
 
 function startCountdown(){
     document.getElementById("countdownClock").style.opacity="100%";
-    document.getElementById("countdownClock").innerHTML="01:00";
+    document.getElementById("countdownClock").innerHTML="15:00";
     playTimeBeep();
     setTimeout(updateCountdown,1000);
 }
