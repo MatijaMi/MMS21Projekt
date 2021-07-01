@@ -12,7 +12,7 @@ function showIntroScreen(){
     document.getElementById("StartVideo").style.display="none";
     document.getElementById("startButton").style.display="none";
     document.getElementById("StartVideo").pause();
-    document.getElementById("backgroundMusic").volume=0.1;
+    document.getElementById("backgroundMusic").volume=0.4;
     document.getElementById("backgroundMusic").play();
     document.getElementById("IntroVideo").play(); 
 }
@@ -30,7 +30,7 @@ function startGame(){
     document.getElementById("introStartButton").style.display="none";
     document.getElementById("GameOverVideo").style.display="none";
     
-    wall=0;
+    wall=1;
     inventoryPointer=0;
     
     riddle1Solved = false;
@@ -84,7 +84,7 @@ function startGame(){
     document.getElementById("backgroundImg").style.display="block"; 
     
     inventory=[];
-    document.getElementById("backgroundMusic").volume=0.1;
+    document.getElementById("backgroundMusic").volume=0.4;
     document.getElementById("backgroundMusic").play();
     startCountdown();
     drawWall();

@@ -21,7 +21,7 @@ function moveBottom(){
     
     document.getElementById("riddle-1-b").style.display="none";
     document.getElementById("dimmnesBox").style.display="none";
-    document.getElementById("backgroundMusic").volume=0.1;
+    document.getElementById("backgroundMusic").volume=0.4;
     document.getElementById("melody1").pause();
     document.getElementById("melody1").currentTime=0;
     document.getElementById("melody2").pause();
