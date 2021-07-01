@@ -3,6 +3,7 @@ var melodyCombination = "312";
 var enteredCombination =""
 
 function drawComputerRiddle(){
+    enteredCombination =""
     prevWall =wall;
     document.getElementById("computerRiddleScreen").style.display="block";
     document.getElementById("dimmnesBox").style.display="block";
