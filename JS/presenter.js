@@ -47,11 +47,12 @@ function drawWall(){
             rightHalf.src = 'Images/Final/wall-w-r-1.png';
             break;
     }
-    
-    rightHalf.onload = function() {
+    leftHalf.onload = function(){
         document.getElementById("backgroundImgLeftHalf").src=leftHalf.src;
         document.getElementById("backgroundImgLeftHalf").style.width="50vw"
         document.getElementById("backgroundImgLeftHalf").style.height="100vh";
+    }
+    rightHalf.onload = function() {
         document.getElementById("backgroundImgRightHalf").src=rightHalf.src;
         document.getElementById("backgroundImgRightHalf").style.width="50vw"
         document.getElementById("backgroundImgRightHalf").style.height="100vh";
