@@ -1,5 +1,6 @@
 var riddle4Combination = "3 2 8";
 var riddle4Solved = false;
+
 function drawRiddle4Scene(){
     prevWall =wall;
     document.getElementById("riddle4Lock").style.display="block";
@@ -7,12 +8,10 @@ function drawRiddle4Scene(){
     showArrow("left",false);
     showArrow("right",false);
     showArrow("bottom", true);
-    drawInteractibles(wall);
 }
 
 
 function riddle4KeypadClick(number){
-    console.log(number)
     if(riddle4Solved==false){
         playkeypadButton();
         var text= document.getElementById("riddle4TextField").innerHTML;
@@ -24,10 +23,8 @@ function riddle4KeypadClick(number){
                 playUnlockSound();
                 document.getElementById("backgroundImgRightHalf").src = 'Images/Final/wall-e-r-2.png';
                 document.getElementById("toRiddle4Lock").style.display="none";
-                var index = currentinteractibles[wall].indexOf("toriddle4Lock");
-                if(index>-1){
-                    currentinteractibles[wall].splice(index,1);
-                }
+                //Add win button once final puzzle has been solved
+                currentinteractibles[1].push("toWinningScreen");
             }else{
                 newText="_ _ _";
                 playFailureSound();

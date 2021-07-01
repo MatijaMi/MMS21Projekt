@@ -1,5 +1,6 @@
 var riddle3Combination = "1 7 2";
 var riddle3Solved = false;
+
 function drawRiddle3Scene(){
     prevWall =wall;
     document.getElementById("riddle3Lock").style.display="block";
@@ -7,7 +8,6 @@ function drawRiddle3Scene(){
     showArrow("left",false);
     showArrow("right",false);
     showArrow("bottom", true);
-    drawInteractibles(wall);
 }
 
 
@@ -25,10 +25,6 @@ function riddle3KeypadClick(number){
                 document.getElementById("backgroundImgLeftHalf").src = 'Images/Final/wall-s-l-2.png';
                 document.getElementById("toRiddle3Lock").style.display="none";
                 document.getElementById("riddle-4-hint").style.top="46.5%";
-                var index = currentinteractibles[wall].indexOf("toriddle3Lock");
-                if(index>-1){
-                    currentinteractibles[wall].splice(index,1);
-                }
             }else{
                 newText="_ _ _";
                 playFailureSound();

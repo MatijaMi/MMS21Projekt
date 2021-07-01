@@ -16,22 +16,12 @@
      display: none;
 }
 
-
-#riddle-1-b{
-    position: absolute;
-    width: 5vw;
-    height: 13vh;
-    top:29%;
-    left: 37%;
-    display: none;
-}
-
 #riddle-1-c{
     position: absolute;
     width: 3%; 
     height: 6%;
     top: -10%;
-    left: 17.5%; 
+    left: 21.5%; 
 }
 
 #riddle-2-hint{
@@ -39,7 +29,7 @@
     width: 3%; 
     height: 6%;
     top: -10%;
-    left: 21%; 
+    left: 17%; 
 }
 
 #riddle-1-b{

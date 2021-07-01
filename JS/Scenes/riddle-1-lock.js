@@ -1,5 +1,6 @@
 var riddle1Combination = "7 4 0";
 var riddle1Solved = false;
+//The code for these keypads could be a lot less redundant but due to time constraints it will stay in this state
 function drawRiddle1Scene(){
     prevWall =wall;
     document.getElementById("riddle1Lock").style.display="block";

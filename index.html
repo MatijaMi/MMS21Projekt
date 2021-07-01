@@ -4,15 +4,14 @@
     
     <head>
 		<meta charset="UTF-8">
-    	<link rel="icon" href="Images/icon.svg">
+    	<link rel="icon" href="Images/Final/favicon.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Escape Room</title>
-        <link rel="shortcut icon" type="image/jpg" href="Images/Final/Screwdriver.svg"/>
-        <!-- All the stylesheets necessary for the various scenes -->
+        <title>Escape from Lab Kachefski</title>
+        <link rel="shortcut icon" type="image/jpg" href="Images/Final/favicon.png"/>
+        <!-- All the stylesheets necessary for the base, items and scenes -->
         <link rel="stylesheet" href="CSS/baseStyle.css">
         <link rel="stylesheet" href="CSS/itemStyle.css">
         <link rel="stylesheet" href="CSS/sceneStyle.css">
-        <link rel="stylesheet" href="CSS/audioGame.css">
         <link rel="stylesheet" href="CSS/toSceneStyles.css">
         <!-- Import for all the scripts that are used for the various parts-->
 		<script src="mainScript.js"></script>
@@ -34,23 +33,25 @@
     <body>
         
         <div id="mainDiv">
-            <!-- The Image used to display what is currently the main scene of the room-->
+            <!-- The images used to display what is currently the main scene of the room-->
             <div id="backgroundImg" >
                 <img id="backgroundImgLeftHalf" src="">
                 <img id="backgroundImgRightHalf" src="">
-            </div>
+            </div> 
             
             <!--Intro Film and some code to make it autoplay properly-->
             <video autoplay id="StartVideo"><source src="Videos/START.mp4" type="video/mp4" ></video>
+            <video id="IntroVideo"><source src="Videos/IntroVideo.mp4" type="video/mp4"></video>
             <video id="GameOverVideo"><source src="Videos/GameOverVideo.mp4" type="video/mp4" ></video>
             <video id="GameWinVideo"><source src="Videos/GameWinVideo.mp4" type="video/mp4" ></video>
             
-            <button id=startButton onclick="startGame()"></button>
+             <!--General Buttons needed to start the game-->
+            <button id=startButton onclick="showIntroScreen()"></button>
+            <button id="introStartButton" onclick="startGame()">Continue</button>
             <button id=restartButton onclick="startGame()"></button>
-            
+                                
             <!-- Inventory HTML-->
             <div id="inventory">
-                <div id="inventoryArrowLeft"></div>
                 <div class="inventorySlot" id="inventorySlot0"></div>
                 <div class="inventorySlot" id="inventorySlot1"></div>
                 <div class="inventorySlot" id="inventorySlot2"></div>
@@ -59,16 +60,7 @@
                 <div class="inventorySlot" id="inventorySlot5"></div>
                 <div class="inventorySlot" id="inventorySlot6"></div>
                 <div class="inventorySlot" id="inventorySlot7"></div>
-                <div id="inventoryArrowRight"></div>
             </div>
-            
-            <!-- HTML for the Inventory Screen-->
-            <div id="inspectionScreen"> 
-                <img id="inspectionImage" src="">
-                <button id="leaveInspectButton">X</button>
-            </div>
-            
-            <div id="dimmnesBox"></div>
             
             <!-- Arrows for navigation in the screens-->
             <div id="bottomArrow" class="arrowButtons" onclick="moveBottom()"></div>
@@ -77,9 +69,11 @@
             
             <!-- The Countdown Clock-->
             <div id="countdownClock"></div>
+            <!-- Div used to create dimming effect when zoomed in-->
+            <div id="dimmnesBox"></div>
             
             
-            <!-- All of the Audio files needed go here-->
+            <!-- All of the Audio files needed -->
             <audio  src="Audio/clockbeep.mp3" id="beepAudio" display ="none"></audio>
             <audio  src="Audio/success.wav" id="successAudio" display ="none"></audio>
             <audio  src="Audio/error.wav"  id = "errorAudio" display ="none"></audio>
@@ -95,12 +89,12 @@
             <audio  src="Audio/melody3.mp3" id= "melody3" display ="none" ></audio>        
             <audio  src="Audio/completeMelody.mp3" id= "completeMelody" display ="none" ></audio>        
             
-            <!-- All the Inventory Items go here-->
+            <!-- All the Inventory Items used-->
             <img id="Screwdriver" class="grabableItems" src="Images/Final/Screwdriver.svg" onclick="pickupItem()">
             <img id="riddle-1-a" class="grabableItems" src="Images/Final/card-1.png" onclick="pickupItem()">
             <img id="riddle-1-b" class="grabableItems" src="Images/Final/riddle-1-card-b.png" onclick="pickupItem()">
-            <img id="riddle-1-c" class="grabableItems" src="Images/Final/riddle-1-c.png" onclick="pickupItem()">
-            <img id="riddle-2-hint" class="grabableItems" src="Images/Final/riddle-2-hint.png" onclick="pickupItem()">
+            <img id="riddle-1-c" class="grabableItems" src="Images/Final/riddle-1-card-1.png" onclick="pickupItem()">
+            <img id="riddle-2-hint" class="grabableItems" src="Images/Final/riddle-2-card.png" onclick="pickupItem()">
             <img id="riddle-3-a" class="grabableItems" src="Images/Final/riddle-3-a.png" onclick="pickupItem()">
             <img id="riddle-3-b" class="grabableItems" src="Images/Final/riddle-3-b.png" onclick="pickupItem()">
             <img id="riddle-4-hint" class="grabableItems" src="Images/Final/riddle-4-hint.png" onclick="pickupItem()">
@@ -116,10 +110,11 @@
             <button class="SceneButton" id="toComputerRiddle" onclick="drawComputerRiddle()"><img id="computerMonitor" src="Images/Final/computer.png"></button>
             <button class="SceneButton" id="toExperimentRiddle" onclick="drawExperimentRiddle()"><img id="experimentSet" src="Images/Final/experiment-1.png"></button>
             <button class="SceneButton" id="toPeriodicTable" onclick="drawPeriodicTable()"><img id="PeriodicTable" src="Images/Final/periodicTable.jpeg"></button>
+            <button class="SceneButton" id="toWinningScreen" onclick="gameWin()"></button>
             
             
-            
-            <!-- All the extra things, aka things to interact with in each scene go here-->
+            <!-- All the scenes and things to interact with in each scene go here-->
+            <!-- Vent Scene -->
             <div id='ventScene' class="SceneParts">
                 <image id='VentCoverImage' src='Images/Final/ventSceneClosed.png'></image>
                 <button id='TopRightScrew' onclick='removeScrew()'>X</button>
@@ -128,7 +123,7 @@
                 <button id='BottomRightScrew' onclick='removeScrew()'>X</button>
             </div>
 
-            
+            <!-- Computer Melody Riddle Scene -->
             <div id="computerRiddleScreen"  class="SceneParts">
                 <img id="computerScreenImage" src="Images/Final/computerScreenOnly.png">
                 <button id="computerPlayButton" class="computerButtons" onclick="playMelody(0)"></button>
@@ -137,6 +132,7 @@
                 <button id="computerButton3" class="computerButtons" onclick="playMelody(3)"></button>
             </div>
             
+            <!-- Lab Experiment Scene -->
             <div id="experimentRiddleScreen"  class="SceneParts">
                 <img id="experimentBackground" src="Images/Final/experimentBackground.png">
                 <img id="experimentScreenImage" src="Images/Final/experiment-1.png">
@@ -145,10 +141,12 @@
                 <button id="experimentButtonC" class="experimentButton" onclick="releaseValve(2)"></button>
             </div>
             
+            <!-- Periodic System Scene-->
             <div id="periodicTableScene" class="SceneParts">
                 <img id="periodicTableFullImage" src="Images/Final/periodicTable.jpeg">
             </div>
             
+            <!-- Locks for the individual Keypad Riddles, not the cleanest code and very redundant but I didn't have time to improvei it :/ -->
             <div id="riddle1Lock" class="SceneParts">
                 
                 <div id="riddle1TextField">_ _ _</div>
@@ -194,7 +192,7 @@
             <div id="riddle3Lock" class="SceneParts">
                 
                 <div id="riddle3TextField">_ _ _</div>
-                <img id="riddle3LockStar" src="Images/Final/moon.png">
+                <img id="riddle3LockStar" src="Images/Final/star.png">
                 <div id="riddle3Keypad">
                     <button id="riddle3Keypad0" class="riddle3KeypadButton" onclick="riddle3KeypadClick(0)">0</button>
                     <button id="riddle3Keypad1" class="riddle3KeypadButton" onclick="riddle3KeypadClick(1)">1</button>
@@ -231,11 +229,6 @@
                 </div>
             
             </div>
-            
-            
-            
-           
-            
         </div>
         
     </body>
@@ -245,7 +238,6 @@
         document.getElementById("errorAudio").volume=0.2;
         
         const myVideo = document.getElementById('StartVideo');
-
         const playPromise = myVideo.play() || Promise.reject('');
         playPromise.then(() => {}).catch(err => {myVideo.muted = true; myVideo.play();});
     </script>

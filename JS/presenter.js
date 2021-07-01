@@ -1,7 +1,8 @@
+//Functions used to show the correct items, objects and walls to the player
 function drawWall(){
     var leftHalf = new Image();
     var rightHalf = new Image();
-    
+    //0=North, 1=East, 2=South, 3=West
     switch (wall){
         case 0:
             if(riddle1Solved){
