@@ -58,6 +58,7 @@ function removeScrew(){
                 document.getElementById("backgroundImgLeftHalf").src="Images/Final/wall-e-l-2.png";
                 document.getElementById("riddle-1-b").style.display="block";
             }
+            removeItem("Screwdriver");
         }
         switch(screw){
             case "TopRightScrew":

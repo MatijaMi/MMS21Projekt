@@ -25,6 +25,8 @@ function riddle3KeypadClick(number){
                 document.getElementById("backgroundImgLeftHalf").src = 'Images/Final/wall-s-l-2.png';
                 document.getElementById("toRiddle3Lock").style.display="none";
                 document.getElementById("riddle-4-hint").style.top="44.5%";
+                removeItem("riddle-3-a");
+                removeItem("riddle-3-b");
             }else{
                 newText="_ _ _";
                 playFailureSound();

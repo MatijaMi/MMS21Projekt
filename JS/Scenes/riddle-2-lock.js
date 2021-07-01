@@ -29,6 +29,7 @@ function riddle2KeypadClick(number){
                 if(index>-1){
                     currentinteractibles[wall].splice(index,1);
                 }
+                removeItem("riddle-2-hint");
             }else{
                 newText="_ _ _";
                 playFailureSound();

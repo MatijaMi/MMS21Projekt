@@ -13,11 +13,26 @@ function pickupItem(){
         }
     }
     inventory.push(item);
-    
+    updateInventory();
+}
+
+function updateInventory() {
+
     var slots =document.getElementsByClassName("inventorySlot");
-    for(var i =0; i<slots.length;i++){
-        if(i<inventory.length){
-            slots[slots.length-i-1].style.backgroundImage="url(Images/Final/" + inventory[inventoryPointer+i] +".png)";
+    for(var i =0; i< slots.length;i++){
+        if(i < inventory.length) {
+            slots[i].style.backgroundImage="url(Images/Final/" + inventory[i] +".png)";
+        } else {
+            slots[i].style.backgroundImage=null;
         }
+
+    }
+}
+
+function removeItem(item) {
+    var index = inventory.indexOf(item);
+    if(index > -1) {
+        inventory.splice(index, 1);
+        updateInventory();
     }
 }

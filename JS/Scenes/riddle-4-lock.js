@@ -25,6 +25,7 @@ function riddle4KeypadClick(number){
                 document.getElementById("toRiddle4Lock").style.display="none";
                 //Add win button once final puzzle has been solved
                 currentinteractibles[1].push("toWinningScreen");
+                removeItem("riddle-4-hint");
             }else{
                 newText="_ _ _";
                 playFailureSound();
