@@ -192,20 +192,20 @@ body{
     display: none;
     border:none;
     height: 11vh;
-    width: 45%;
+    width: 22%;
     background-color: #0006;
     z-index: 20;
     position: absolute;
-    right:1%;
+    right:3%;
     bottom: 2%;
     border-radius: 10px;
 }
 
 .inventorySlot{
-    margin: 2%;
+    margin: 3.9%;
     margin-top: 1%;
     margin-bottom: 1%;
-    width: 9%;
+    width: 17.5%;
     height: 90%;
     background-color: transparent;
     display: inline-block;
