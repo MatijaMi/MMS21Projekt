@@ -1,19 +1,19 @@
 #Screwdriver{
     position: absolute;
     bottom: 41%;
-    right: 62%;
+    right: 79%;
     width: 5vw;
-    height: 3vh;
+    height: 2vh;
     display: none;
 }
 
 #riddle-1-a{
     position: absolute;
-    width: 4vw;
-    height: 5vh;
-    top:55%;
-    left: 27%;
-     display: none;
+    width: 3vw;
+    height: 4vh;
+    top:56%;
+    left:40%;
+    display: none;
 }
 
 #riddle-1-c{
@@ -45,27 +45,27 @@
 #riddle-3-b{
     position: absolute;
     top:-26.5%;
-    right:9.5%;
-    width:3%;
-    height:10%;
+    right:8%;
+    width:2%;
+    height:5%;
     display: none;
 }
 
 #riddle-3-a{
     position: absolute;
     top:-67.5%;
-    left:29.5%;
-    width:5%;
-    height:13%;
+    left:28.5%;
+    width:2%;
+    height:6%;
     display: none; 
 }
 
 
 #riddle-4-hint{
     position: absolute;
-    top:-46.5%;
-    left:52.2%;
-    width:4%;
-    height:12%;
+    top:-45.5%;
+    left:47.2%;
+    width:3%;
+    height:6%;
     display: none; 
 }

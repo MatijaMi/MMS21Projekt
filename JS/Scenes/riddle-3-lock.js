@@ -24,7 +24,7 @@ function riddle3KeypadClick(number){
                 document.getElementById("backgroundImgRightHalf").src = 'Images/Final/wall-s-r-2.png';
                 document.getElementById("backgroundImgLeftHalf").src = 'Images/Final/wall-s-l-2.png';
                 document.getElementById("toRiddle3Lock").style.display="none";
-                document.getElementById("riddle-4-hint").style.top="46.5%";
+                document.getElementById("riddle-4-hint").style.top="44.5%";
             }else{
                 newText="_ _ _";
                 playFailureSound();

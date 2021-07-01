@@ -24,7 +24,7 @@ function riddle1KeypadClick(number){
                 playUnlockSound();
                 document.getElementById("backgroundImgLeftHalf").src = 'Images/Final/wall-n-l-2.png';
                 document.getElementById("toriddle1Lock").style.display="none";
-                document.getElementById("riddle-3-a").style.top="67.5%";
+                document.getElementById("riddle-3-a").style.top="77.5%";
                 var index = currentinteractibles[wall].indexOf("toriddle1Lock");
                 if(index>-1){
                     currentinteractibles[wall].splice(index,1);
