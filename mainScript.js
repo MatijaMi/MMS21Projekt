@@ -19,7 +19,7 @@ function showIntroScreen(){
 
 function startGame(){
     //All the needed Items and scenes saved in arrays so game can easily be restarted in case of failure
-    var allItems=[["Screwdriver","riddle-1-a","riddle-3-a","riddle-3-b"],[],["riddle-4-hint"],["riddle-1-c","riddle-2-hint"]];
+    var allItems=[["Screwdriver","riddle-1-c","riddle-3-a","riddle-3-b"],[],["riddle-4-hint"],["riddle-1-a","riddle-2-hint"]];
     var allInteractibles=[["toriddle1Lock","toriddle2Lock"],["toPeriodicTable","toRiddle4Lock","toVentScene"],["toRiddle3Lock"],["toComputerRiddle","toExperimentRiddle"]];
     
     //Removing parts that won't be needed anymore
@@ -51,7 +51,7 @@ function startGame(){
     enteredCombination =""
     
     //Hiding hidden items offscreen
-    document.getElementById("riddle-1-c").style.top="-20%";
+    document.getElementById("riddle-1-a").style.top="-20%";
     document.getElementById("riddle-3-b").style.top="-20%";
     document.getElementById("riddle-3-a").style.top="-20%";
     document.getElementById("riddle-4-hint").style.top="-20%";

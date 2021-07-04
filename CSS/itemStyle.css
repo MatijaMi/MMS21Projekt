@@ -7,29 +7,13 @@
     display: none;
 }
 
-#riddle-1-a{
+#riddle-1-c{
     position: absolute;
     width: 3vw;
     height: 4vh;
     top:56%;
     left:40%;
     display: none;
-}
-
-#riddle-1-c{
-    position: absolute;
-    width: 3%; 
-    height: 6%;
-    top: -10%;
-    left: 21.5%; 
-}
-
-#riddle-2-hint{
-    position: absolute;
-    width: 3%; 
-    height: 6%;
-    top: -10%;
-    left: 17%; 
 }
 
 #riddle-1-b{
@@ -40,6 +24,22 @@
     height:13%;
     z-index: 11;
     display: none;
+}
+
+#riddle-1-a{
+    position: absolute;
+    width: 3%;
+    height: 6%;
+    top: -11%;
+    left: 21.4%;
+}
+
+#riddle-2-hint{
+    position: absolute;
+    width: 3%; 
+    height: 6%;
+    top: -10%;
+    left: 17%; 
 }
 
 #riddle-3-b{

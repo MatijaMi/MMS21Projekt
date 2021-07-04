@@ -1,4 +1,4 @@
-var riddle4Combination = "3 2 8";
+var riddle4Combination = "3 7 8";
 var riddle4Solved = false;
 
 function drawRiddle4Scene(){

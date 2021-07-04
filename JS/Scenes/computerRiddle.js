@@ -52,7 +52,7 @@ function playMelody(melody){
                 playUnlockSound();
                 computerRiddleSolved=true;
                 document.getElementById("backgroundImgLeftHalf").src = 'Images/Final/wall-w-l-2.png';
-                document.getElementById("riddle-1-c").style.top= "53.5%";
+                document.getElementById("riddle-1-a").style.top= "53.5%";
                 document.getElementById("riddle-2-hint").style.top = "53.5%";
             }else{
                 playFailureSound();

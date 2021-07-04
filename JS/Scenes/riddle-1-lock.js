@@ -29,8 +29,8 @@ function riddle1KeypadClick(number){
                 if(index>-1){
                     currentinteractibles[wall].splice(index,1);
                 }
-                removeItem("riddle-1-a");
                 removeItem("riddle-1-b");
+                removeItem("riddle-1-a");
                 removeItem("riddle-1-c");
             }else{
                 newText="_ _ _";
